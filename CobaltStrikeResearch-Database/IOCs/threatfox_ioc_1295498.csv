@@ -1,0 +1,2 @@
+"id", "ioc", "ioc_type", "threat_type", "malware", "malware_printable", "malware_alias", "confidence_level", "first_seen", "last_seen", "reporter", "reference", "threatfox_link", "tags"
+"1295498", "http://43.153.222.28:433/IE9CompatViewList.xml", "url", "botnet_cc", "win.cobalt_strike", "Cobalt Strike", "Agentemis,BEACON,CobaltStrike,cobeacon", "100", "2024-07-07 15:56:52 UTC", "", "drb_ra", "", "https://threatfox.abuse.ch/ioc/1295498/", "CobaltStrike,cs-watermark-100000,TENCENT-NET-AP-CN Tencent Building Kejizhongyi Avenue"

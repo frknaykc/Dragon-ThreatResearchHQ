@@ -1,0 +1,2 @@
+"id", "ioc", "ioc_type", "threat_type", "malware", "malware_printable", "malware_alias", "confidence_level", "first_seen", "last_seen", "reporter", "reference", "threatfox_link", "tags"
+"1295497", "http://101.43.12.111:9999/pixel.gif", "url", "botnet_cc", "win.cobalt_strike", "Cobalt Strike", "Agentemis,BEACON,CobaltStrike,cobeacon", "100", "2024-07-07 15:50:40 UTC", "", "drb_ra", "", "https://threatfox.abuse.ch/ioc/1295497/", "CobaltStrike,cs-watermark-1873433027,Shenzhen Tencent Computer Systems Company Limited"
