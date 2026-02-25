@@ -1,0 +1,182 @@
+###############################################################################
+# Operation Olalampo — MuddyWater Hunting Queries
+# Campaign: Jan-Feb 2026
+# Source: Group-IB Threat Intelligence
+###############################################################################
+
+#==============================================================================
+# SHODAN QUERIES
+#==============================================================================
+
+# GhostFetch/GhostBackDoor C2 — Werkzeug Python backend
+"Werkzeug/3.1.5 Python/3.12.3" country:"IR"
+"Werkzeug/3.1.5 Python/3.12.3" org:"NameCheap"
+http.html:"Digital Marketing & Brand Promotion" "Werkzeug"
+
+# Apache reverse proxy pattern (C2 deployment stack)
+"Apache" "503 Service Unavailable" port:443 org:"NameCheap"
+
+# GhostBackDoor French API endpoints (if exposed in HTTP responses)
+http.html:"/api/accueil/actualiser"
+http.html:"/api/graphique/obtenir-donnees"
+http.html:"/api/utilisateurs/enregistrer"
+http.html:"/api/authentification/renouveler_token"
+
+# HTTP_VIP C2 endpoints
+http.html:"/postinfo" "Werkzeug"
+http.html:"/upload-results" "Werkzeug"
+
+# Open directory with FMAPP
+http.title:"Directory listing" "FMAPP"
+"SimpleHTTP/0.6 Python/3.12.3"
+
+# Known infrastructure IPs
+net:209.74.87.0/24
+ip:209.74.87.67
+ip:209.74.87.100
+ip:143.198.5.41
+ip:162.0.230.185
+ip:159.198.43.141
+
+#==============================================================================
+# CENSYS QUERIES
+#==============================================================================
+
+services.http.response.body:"Promoverse" AND services.http.response.headers.server:"Werkzeug"
+services.http.response.body:"/api/accueil/" AND services.tls.certificates.leaf_data.issuer.common_name:"Let's Encrypt"
+services.http.response.body:"Digital Marketing" AND services.http.response.headers.server:"Python"
+services.http.response.body:"/postinfo" AND services.http.response.headers.server:"Werkzeug"
+ip:209.74.87.67
+ip:209.74.87.100
+ip:159.198.43.141
+
+#==============================================================================
+# FOFA QUERIES
+#==============================================================================
+
+server="Werkzeug/3.1.5 Python/3.12.3" && cert="Let's Encrypt"
+body="Digital Marketing & Brand Promotion" && server="Werkzeug"
+body="/api/accueil/" && server="Werkzeug"
+ip="209.74.87.67"
+ip="209.74.87.100"
+domain="codefusiontech.org"
+domain="promoverse.org"
+domain="miniquest.org"
+
+#==============================================================================
+# GOOGLE DORK QUERIES
+#==============================================================================
+
+site:codefusiontech.org
+site:promoverse.org
+site:miniquest.org
+site:jerusalemsolutions.com
+inurl:"/api/accueil/" inurl:".org"
+"Promoverse" "Digital Marketing & Brand Promotion"
+"stager_51_bot" site:t.me
+
+#==============================================================================
+# SIGMA / SIEM DETECTION QUERIES
+#==============================================================================
+
+# --- Elastic/Splunk ---
+
+# GhostFetch persistence path
+process.executable:*\\microsoft\\windows\\burnutill\\burn.exe
+file.path:*\\microsoft\\windows\\burnutill\\*
+
+# GhostBackDoor service creation
+winlog.event_data.ServiceName:"MicrosoftVersionUpdater"
+
+# Recycle Bin ClassID abuse (GhostBackDoor evasion)
+registry.value:"*645FF040-5081-101B-9F08-00AA002F954E*"
+
+# HTTP_VIP drop paths
+file.path:*\\Downloads\\pic.LOG
+file.path:*\\Public\\Documents\\MicrosoftWordUser.exe
+file.path:*\\Public\\Documents\\MicrosoftExcelUser.exe
+file.path:*\\Public\\Downloads\\novaservice.exe
+
+# CHAR backdoor persistence via scheduled task
+process.command_line:*schtasks* AND process.command_line:*DailyUpdate* AND process.command_line:*novaservice*
+
+# PowerShell encoded commands (MuddyWater pattern)
+process.command_line:*"powershell.exe -NonInteractive -WindowStyle Hidden -ExecutionPolicy RemoteSigned -EncodedCommand"*
+
+# FMAPP DLL sideloading
+process.executable:*\\ProgramData\\FMAPP.exe
+file.path:*\\ProgramData\\FMAPP.dll
+
+# cobe-notes.txt credential exfiltration
+file.path:*\\public\\downloads\\cobe-notes.txt
+
+# AnyDesk deployment (suspicious paths)
+process.executable:*\\AnyDesk*.exe AND NOT process.executable:*\\Program Files*
+
+# Macro-dropped payloads
+file.path:*\\Users\\Public\\Downloads\\novaservice.exe
+file.path:*\\Users\\Public\\Documents\\MicrosoftExcelUser.exe
+file.path:*\\Users\\Public\\Documents\\MicrosoftWordUser.exe
+
+# Network — C2 domain connections
+dns.question.name:(codefusiontech.org OR promoverse.org OR miniquest.org OR jerusalemsolutions.com OR netvigil.org)
+
+# Network — C2 IP connections
+destination.ip:(209.74.87.67 OR 209.74.87.100 OR 143.198.5.41 OR 162.0.230.185 OR 159.198.43.141)
+
+# GhostBackDoor French API endpoints in HTTP traffic
+url.path:("/api/accueil/actualiser" OR "/api/graphique/obtenir-donnees" OR "/api/graphique/consulter" OR "/api/accueil/televerser" OR "/api/utilisateurs/enregistrer" OR "/api/accueil/filtrer" OR "/api/accueil/rechercher" OR "/api/authentification/renouveler_token")
+
+# HTTP_VIP C2 API endpoints in traffic
+url.path:("/postinfo" OR "/upload-results" OR "/ercv" OR "/ecmd" OR "/esend" OR "/erecv")
+
+# HTTP_VIP agent registration headers
+http.request.headers.X-Computer-Name:* AND http.request.headers.X-Username:* AND http.request.headers.X-Domain-Name:*
+
+# Telegram Bot API (CHAR C2)
+dns.question.name:api.telegram.org AND NOT process.executable:*Telegram*
+destination.ip:149.154.167.* AND NOT process.executable:*Telegram*
+
+#==============================================================================
+# YARA HUNT - KEY STRINGS
+#==============================================================================
+
+# GhostFetch indicators
+# "burnutill" | "burn.exe" | "promoverse" | "User Shell Folders\\Startup"
+# GetTickCount64 + mouse movement check + RAM < 2GB check
+
+# GhostBackDoor indicators
+# "/api/accueil/actualiser" | "/api/graphique/obtenir-donnees"
+# "/api/utilisateurs/enregistrer" | "/api/authentification/renouveler_token"
+# "MicrosoftVersionUpdater" | "{645FF040-5081-101B-9F08-00AA002F954E}"
+
+# HTTP_VIP indicators
+# "/postinfo" | "/content" | "/upload-results" | "/ercv"
+# "X-Computer-Name" | "X-Username" | "X-Domain-Name" | "X-Windows-Version"
+# "/ecmd" | "/esend" | "/erecv" (new variant)
+
+# CHAR (Rust backdoor) indicators
+# "stager_51_bot" | Emoji debug strings (unusual in Rust)
+# PDB path containing "Char\\target\\x86_64-pc-windows-msvc"
+
+# Macro indicators (all variants)
+# "UserForm1.TextBox1.Text" | nested loop wait() | "MicrosoftExcelUser.exe"
+# "MicrosoftWordUser.exe" | "pic.LOG" | "novaservice.exe"
+
+#==============================================================================
+# NETWORK SIGNATURES
+#==============================================================================
+
+# GhostBackDoor beacon pattern
+# POST /api/accueil/actualiser (heartbeat, periodic)
+# Response triggers subsequent API calls to French-named endpoints
+# All traffic AES-encrypted
+
+# HTTP_VIP registration
+# POST /postinfo with headers: X-Computer-Name, X-Username, X-Domain-Name, X-Windows-Version, X-Windows-Build, X-Antivirus-Name
+# Response contains agent_id
+# Followed by periodic POST /content with agent_id
+
+# Chunked AnyDesk download
+# GET /upload-results with X-ChunkId header (incrementing)
+# Final POST /ercv to confirm completion

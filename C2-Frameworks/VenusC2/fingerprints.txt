@@ -1,0 +1,15 @@
+# Venus C2 — Hunting Queries
+# Last Updated: 2026-02-25
+
+# --- Shodan ---
+http.title:"Venus C2"
+http.html:"Venus C2 Dashboard"
+http.html:"semver 0.5.1"
+http.html:"Online Agents" http.html:"Native Modules"
+ip:45.8.157.134
+
+# --- Censys ---
+services.http.response.html_title:"Venus C2"
+services.http.response.body:"Venus C2 Dashboard"
+services.http.response.body:"semver 0.5.1"
+ip:45.8.157.134

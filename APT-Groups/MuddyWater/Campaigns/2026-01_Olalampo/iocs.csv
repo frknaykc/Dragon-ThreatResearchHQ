@@ -1,0 +1,59 @@
+type,value,description,malware,first_seen,last_seen,confidence,source,tlp,tags
+domain,codefusiontech.org,HTTP_VIP C2 server,HTTP_VIP,2026-02-02,2026-02-15,high,Group-IB,white,c2;http_vip;namecheap
+domain,promoverse.org,GhostFetch/GhostBackDoor C2 server,GhostFetch,2025-12-21,2026-01-30,high,Group-IB,white,c2;ghostfetch;ghostbackdoor
+domain,miniquest.org,HTTP_VIP C2 server,HTTP_VIP,2026-01-27,2026-02-13,high,Group-IB,white,c2;http_vip;namecheap
+domain,jerusalemsolutions.com,Related infrastructure,,,,medium,Group-IB,white,infrastructure
+domain,netvigil.org,Prior MuddyWater C2 - identical HTML to promoverse.org,GhostFetch,2025-10,,high,Group-IB,white,c2;historical;ghostfetch
+ipv4,209.74.87.67,GhostFetch C2 real IP (behind CloudFlare),GhostFetch,2026-01-27,2026-01-30,high,Group-IB,white,c2;real-ip
+ipv4,209.74.87.100,HTTP_VIP C2 real IP (behind CloudFlare) + open directory,HTTP_VIP,2026-02-11,2026-02-15,high,Group-IB,white,c2;real-ip;open-directory
+ipv4,143.198.5.41,Data exfiltration server (cobe-notes.txt upload),,2025-10-06,,high,Group-IB,white,exfiltration
+ipv4,162.0.230.185,Infrastructure IP,,,,high,Group-IB,white,infrastructure
+ipv4,159.198.43.141,miniquest.org real IP (behind CloudFlare),HTTP_VIP,2026-02-02,2026-02-13,high,Group-IB,white,c2;real-ip
+sha1,dc785be0c4430bfc5b507255f892bf30134a02b6,Malicious Excel document (attachment.xls),Maldoc,,,high,Group-IB,white,maldoc;excel;variant1
+sha1,e79ccc3f6517c911d6c1df79c94e88896f574e64,Malicious Word document (ticket.doc),Maldoc,,,high,Group-IB,white,maldoc;word;variant3
+sha1,975c763e050d0a9a46f0aafdde66d3e7f0626c5b,Malicious Word document (ticket.doc),Maldoc,,,high,Group-IB,white,maldoc;word
+sha1,80cea18e19665c5a57e7b9ca0bf36aad06096e93,GhostFetch downloader (burn.exe),GhostFetch,,,high,Group-IB,white,downloader;ghostfetch
+sha1,62ed16701a14ce26314f2436d9532fe606c15407,FMAPP.dll - Reverse SOCKS5 proxy,FMAPP,,,high,Group-IB,white,socks5;proxy;sideload
+sha1,324918c73b985875d5f974da3471f2a0a4874687,FMAPP.exe - Legitimate exe for DLL sideload,FMAPP,,,high,Group-IB,white,sideload;legitimate
+sha1,d3fa50a9eba93a7fbc79e7ad0c4889d762718a5f,FMAPP.dll variant,FMAPP,,,high,Group-IB,white,socks5;proxy
+sha1,f4e0f4449dc50e33e912403082e093dd8e4bc55d,AnyDesk.exe (base sample),AnyDesk,,,high,Group-IB,white,rmm;anydesk
+sha1,7bd04218276fc8f375c0ce3be43a710f6a2b4d09,AnyDesk.exe variant,AnyDesk,,,high,Group-IB,white,rmm;anydesk
+sha1,b55e063607e8f56c9b398b289ba04ddca11398fe,AnyDesk14.exe (agent-specific),AnyDesk,,,high,Group-IB,white,rmm;anydesk
+sha1,270dbaedfbeef9333e0780f3c4e74c01392ce381,AnyDesk38.exe (agent-specific),AnyDesk,,,high,Group-IB,white,rmm;anydesk
+sha1,3c47eab6ebe5b48097c0099ff18f2a8bc13c12f7,AnyDesk72.exe (agent-specific),AnyDesk,,,high,Group-IB,white,rmm;anydesk
+sha1,3441306816018d08dd03a97ac306fac0200e9152,chrome_inject.exe,Unknown,,,high,Group-IB,white,inject;chrome
+sha1,9ca11fcbd75420bd7a578e8bf6ef855e7bd0fb8e,ex-server,Unknown,,,high,Group-IB,white,server
+sha1,06f3b55f0d66913cd53d2f0e76a5e2d67ff8ed04,client.exe,Unknown,,,high,Group-IB,white,client
+sha1,392a36717fa948f7e00d35711e8598108fbe2f72,client.exe variant,Unknown,,,high,Group-IB,white,client
+sha1,2f5166086da5a57d7e59a767a54ed6fe9a6db444,lpu.exe,Unknown,,,high,Group-IB,white,tool
+sha1,8c592d9ab58264e68dfe029ea90f80862c526670,067de891d4624fc09de1c690b01d8bf477f69f0ce81f8101b21b3549,Unknown,,,high,Group-IB,white,unknown
+sha1,f779a3b1dcc0c3aacacf7ebfa4ed57d53af7e26c,data.bin,Unknown,,,high,Group-IB,white,payload
+sha1,2993b0ab9786ddc29eb9cf1ace4a28c6e34ea4fb,Performance.doc (phishing document),Maldoc,,,high,Group-IB,white,maldoc;phishing
+sha1,e3cc95ca6e271ddf04cd88c85051b2cc9ce04e8e,resocks-64.exe (reverse SOCKS5),Resocks,,,high,Group-IB,white,socks5;proxy;64bit
+sha1,ceb9b7dfb8a36ee8fe223063a6e3f730f2dcefd1,resocks-64.dll,Resocks,,,high,Group-IB,white,socks5;proxy;64bit
+sha1,88cb6169fd7dd21e6d6aa3a8df0a78938e698028,resocks-32.exe (reverse SOCKS5),Resocks,,,high,Group-IB,white,socks5;proxy;32bit
+sha1,5c1500296857ed0b0bb7230a1cb17993d25ab69b,resocks-32.dll,Resocks,,,high,Group-IB,white,socks5;proxy;32bit
+sha1,d0d7d0c816753639b5c577aacf14fd2e994b64b0,reset.ps1 (PowerShell script),Unknown,,,high,Group-IB,white,powershell;script
+sha1,f449b95830c584cef72dfb60fb78ee3d6c69ecb4,x.exe,Unknown,,,high,Group-IB,white,unknown
+sha1,e21564fd0fc3103c1d18b1e1525a0b40e9077d40,ThisDocument.cls (macro code),Maldoc,,,high,Group-IB,white,macro;vba
+sha1,feb4318a90057d92ea5ab6420ed6164dd9605013,ThisDocument.cls variant,Maldoc,,,high,Group-IB,white,macro;vba
+sha1,0365daf83e37d2c6daaae6c28b4c8343288ef2f9,intercom.doc (phishing document),Maldoc,,,high,Group-IB,white,maldoc;phishing
+sha1,777040bed9d26f5da97e8977c6efc0586beae064,Unidentified sample,,,,high,Group-IB,white,unknown
+sha1,f5a129ba4141361ca266950dc4adcb2c548aa949,Unidentified sample,,,,high,Group-IB,white,unknown
+sha1,f77499a8fc6e615e21bf111a88c658ba3d5f0f81,Unidentified sample,,,,high,Group-IB,white,unknown
+sha1,2eea39dbe11889e5713cbca020f7ede653bc48ec,ThisWorkbook.cls (Excel macro code),Maldoc,,,high,Group-IB,white,macro;vba;excel
+sha1,d97d21536c061e7a7151a453242d36f3ab196a14,pic.log (HTTP_VIP dropped file),HTTP_VIP,,,high,Group-IB,white,downloader;dropped
+sha1,56380a652471962387693f4bcc893fd21f0fc324,Unidentified sample,,,,high,Group-IB,white,unknown
+sha1,9defffba933fc44f8e3b6e25b31508bc17d29077,CertificationKit.exe,Unknown,,,high,Group-IB,white,unknown
+sha1,efb18cf7cf227037e034c0b525f502e642815f94,avp.exe,Unknown,,,high,Group-IB,white,unknown
+sha1,0588cf26b6e9210f86a266ac0366af1fd29f135c,Unidentified sample,,,,high,Group-IB,white,unknown
+sha1,7d3757d5165e2e95b0b89e33316025a4b9301e2d,aee523056d602571ff006565b432148715a6a13d098d518ba8131ccbe719c043,Unknown,,,high,Group-IB,white,unknown
+sha1,ac982b7b46e085e0bb51cba2edb61bff5910b6a8,3a19c19d9f3bac6628a968110477ee01e5867b2534e914e1be5c4485947bd819,Unknown,,,high,Group-IB,white,unknown
+sha1,8632b62fa14fd679fa97cfe50e6c25696b846129,ThisDocument.cls variant,Maldoc,,,high,Group-IB,white,macro;vba
+sha1,ea80deaed00c8b71aa0033b00fe0ef5b63840b99,ThisDocument.cls variant,Maldoc,,,high,Group-IB,white,macro;vba
+sha1,92e2f826804d762679b13283102f3560078eb4cb,ThisDocument.cls variant,Maldoc,,,high,Group-IB,white,macro;vba
+telegram_bot,stager_51_bot,CHAR C2 Telegram bot username,CHAR,2025-10-06,2026-02-01,high,Group-IB,white,c2;telegram
+username,DontAsk,Threat actor test machine user / Office doc author,CHAR,2026-01-28,,high,Group-IB,white,attribution;ta-artifact
+username,Jacob,Threat actor developer - CHAR/BlackBeard Rust dev environment,CHAR,2026-01-28,,high,Group-IB,white,attribution;ta-artifact;rust
+hostname,desktop-9524r2b,Threat actor test machine hostname,,2026-01-28,,medium,Group-IB,white,attribution;ta-artifact
+domain_name,ultra,Threat actor machine domain name (user Jacob),,2026-01-28,,medium,Group-IB,white,attribution;ta-artifact

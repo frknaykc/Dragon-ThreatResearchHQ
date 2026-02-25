@@ -1,0 +1,6 @@
+type,value,description,threat_actor,campaign,confidence,source,tags
+ipv4,45.8.157.134,Venus C2 Server,VenusC2,,high,OSINT,c2;panel
+url,/api/agent/checkin,Agent Check-in Endpoint,VenusC2,,medium,Analysis,api;c2
+url,/api/agent/register,Agent Registration Endpoint,VenusC2,,medium,Analysis,api;c2
+url,/api/command/queue,Command Queue Endpoint,VenusC2,,medium,Analysis,api;c2
+url,/api/exfil/upload,File Exfiltration Endpoint,VenusC2,,medium,Analysis,api;exfil

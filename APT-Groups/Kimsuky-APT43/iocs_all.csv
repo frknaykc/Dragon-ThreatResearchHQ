@@ -1,0 +1,12 @@
+type,value,description,threat_actor,campaign,confidence,source,tags
+ipv4,49.51.243.156,new Apple phishing,Kimsuky-APT43,2024_ApplePhishing,high,,
+ipv4,68.183.245.101,new Apple phishing,Kimsuky-APT43,2024_ApplePhishing,high,,
+ipv4,79.117.245.81,new Apple phishing,Kimsuky-APT43,2024_ApplePhishing,high,,
+ipv4,89.187.28.147,new Apple phishing,Kimsuky-APT43,2024_ApplePhishing,high,,
+ipv4,93.152.212.67,new Apple phishing,Kimsuky-APT43,2024_ApplePhishing,high,,
+ipv4,103.136.184.100,new Apple phishing,Kimsuky-APT43,2024_ApplePhishing,high,,
+ipv4,121.190.222.13,new Apple phishing,Kimsuky-APT43,2024_ApplePhishing,high,,
+ipv4,149.34.248.71,new Apple phishing,Kimsuky-APT43,2024_ApplePhishing,high,,
+ipv4,149.88.26.191,new Apple phishing,Kimsuky-APT43,2024_ApplePhishing,high,,
+ipv4,218.39.41.41,new Apple phishing,Kimsuky-APT43,2024_ApplePhishing,high,,
+domain,dongwon-mil.site,new Apple phishing,Kimsuky-APT43,2024_ApplePhishing,high,,

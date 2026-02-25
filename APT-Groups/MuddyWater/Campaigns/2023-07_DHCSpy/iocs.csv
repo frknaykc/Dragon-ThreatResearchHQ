@@ -1,0 +1,20 @@
+type,value,description,malware,first_seen,last_seen,confidence,source,tlp,tags
+sha256,a4913f52bd90add74b796852e2a1d9acb1d6ecffe359b5710c59c82af59483ec,DHCSpy Android spyware sample,DHCSpy,,,high,Shindan/Randorisec,white,spyware;android;apk
+sha256,48d1fd4ed521c9472d2b67e8e0698511cea2b4141a9632b89f26bd1d0f760e89,DHCSpy Android spyware sample,DHCSpy,,,high,Shindan/Randorisec,white,spyware;android;apk
+domain,earthvpn.org,Distribution site and C2 domain (Earth VPN),DHCSpy,2024-03,,high,Shindan/Randorisec,white,c2;distribution;vpn-lure
+domain,r1.earthvpn.org,C2 config server (Earth VPN),DHCSpy,,,high,Shindan/Randorisec,white,c2;config
+domain,r2.earthvpn.org,C2 config server (Earth VPN),DHCSpy,,,high,Shindan/Randorisec,white,c2;config
+domain,comodo-vpn.com,Distribution site (Comodo VPN variant),DHCSpy,,,high,Shindan/Randorisec,white,c2;distribution;vpn-lure
+domain,it1.comodo-vpn.com,C2 config server (Comodo VPN),DHCSpy,,,high,Shindan/Randorisec,white,c2;config
+ipv4,5.255.118.39,SFTP exfiltration server (port 4793),DHCSpy,,,high,Shindan/Randorisec,white,exfiltration;sftp
+url,https://r1.earthvpn.org:3413/api/v1,C2 config endpoint (Earth VPN),DHCSpy,,,high,Shindan/Randorisec,white,c2;api;config
+url,https://r2.earthvpn.org:3413/api/v1,C2 config endpoint (Earth VPN),DHCSpy,,,high,Shindan/Randorisec,white,c2;api;config
+url,https://r1.earthvpn.org:1254/,C2 alternate port (Earth VPN),DHCSpy,,,high,Shindan/Randorisec,white,c2;config
+url,https://r2.earthvpn.org:1254/,C2 alternate port (Earth VPN),DHCSpy,,,high,Shindan/Randorisec,white,c2;config
+url,https://it1.comodo-vpn.com:1953/,C2 endpoint (Comodo VPN),DHCSpy,,,high,Shindan/Randorisec,white,c2;config
+url,https://it1.comodo-vpn.com:1950/,C2 endpoint (Comodo VPN),DHCSpy,,,high,Shindan/Randorisec,white,c2;config
+filename,dsbc.db,On-device command/order SQLite database,DHCSpy,,,high,Shindan/Randorisec,white,artifact;database
+filename,vsbc.db,On-device unused usage tracking database,DHCSpy,,,high,Shindan/Randorisec,white,artifact;database
+filename,Catalog.apk,Auto-update APK filename,DHCSpy,,,medium,Shindan/Randorisec,white,update;apk
+filename,com.earth.earth_vpn,Android package name (Earth VPN),DHCSpy,,,high,Shindan/Randorisec,white,package;android
+username,hossein,Developer identifier found in APK compilation traces,DHCSpy,,,medium,Shindan/Randorisec,white,attribution;developer

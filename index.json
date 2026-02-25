@@ -1,0 +1,451 @@
+{
+  "generated": "2026-02-25T12:51:37Z",
+  "total_iocs": 12459,
+  "total_threats": 23,
+  "threats": [
+    {
+      "name": "APT29-CozyBear",
+      "category": "unknown",
+      "path": "APT-Groups/APT29-CozyBear",
+      "campaigns": [],
+      "ioc_count": 5407,
+      "ioc_breakdown": {
+        "cve": 67,
+        "sha256": 1401,
+        "md5": 1017,
+        "sha1": 1000,
+        "ipv4": 937,
+        "domain": 985
+      }
+    },
+    {
+      "name": "APT39",
+      "category": "unknown",
+      "path": "APT-Groups/APT39",
+      "campaigns": [],
+      "ioc_count": 50,
+      "ioc_breakdown": {
+        "cve": 3,
+        "sha256": 8,
+        "md5": 31,
+        "sha1": 3,
+        "domain": 3,
+        "ipv4": 2
+      }
+    },
+    {
+      "name": "AeternumLoader",
+      "category": "loader",
+      "path": "Malware/Loaders/AeternumLoader",
+      "campaigns": [],
+      "ioc_count": 63,
+      "ioc_breakdown": {
+        "ipv4": 1,
+        "domain": 7,
+        "wallet": 1,
+        "contract": 1,
+        "ssl_sha256": 1,
+        "jarm": 1,
+        "port": 2,
+        "asn": 1,
+        "organization": 1,
+        "ssl_cn": 1,
+        "ssl_sha1": 1,
+        "ja3s": 1,
+        "html_title": 1,
+        "html_description": 1,
+        "html_hash": 1,
+        "title_hash": 1,
+        "favicon_hash": 1,
+        "dom_hash": 1,
+        "headers_hash": 1,
+        "build_id": 1,
+        "css_hash": 2,
+        "js_hash": 3,
+        "string": 12,
+        "http_header": 3,
+        "file_path": 3,
+        "tech_stack": 4,
+        "blockchain": 1,
+        "rpc": 1,
+        "certificate_serial": 1,
+        "certificate_validity": 1,
+        "tls_cipher": 1,
+        "tls_version": 1,
+        "isp": 1,
+        "location": 1,
+        "tag": 1
+      }
+    },
+    {
+      "name": "BLXStealer",
+      "category": "unknown",
+      "path": "Malware/Stealers/BLXStealer",
+      "campaigns": [],
+      "ioc_count": 2,
+      "ioc_breakdown": {
+        "md5": 1,
+        "sha1": 1
+      }
+    },
+    {
+      "name": "BitterAPT",
+      "category": "apt_group",
+      "path": "APT-Groups/BitterAPT",
+      "campaigns": [
+        "2024_DefenseSector"
+      ],
+      "ioc_count": 19,
+      "ioc_breakdown": {
+        "ipv4": 9,
+        "sha256": 8,
+        "url": 2
+      }
+    },
+    {
+      "name": "Brickstorm",
+      "category": "unknown",
+      "path": "Malware/Backdoors/Brickstorm",
+      "campaigns": [],
+      "ioc_count": 35,
+      "ioc_breakdown": {
+        "sha256": 3,
+        "md5": 20,
+        "ipv4": 7,
+        "domain": 5
+      }
+    },
+    {
+      "name": "CobaltStrike",
+      "category": "unknown",
+      "path": "C2-Frameworks/CobaltStrike",
+      "campaigns": [],
+      "ioc_count": 1226,
+      "ioc_breakdown": {
+        "sha256": 91,
+        "ipv4": 847,
+        "domain": 203,
+        "md5": 41,
+        "sha1": 41,
+        "cve": 3
+      }
+    },
+    {
+      "name": "DroppingElephant",
+      "category": "unknown",
+      "path": "APT-Groups/DroppingElephant",
+      "campaigns": [],
+      "ioc_count": 9,
+      "ioc_breakdown": {
+        "sha256": 5,
+        "domain": 2,
+        "registry": 1,
+        "ipv4": 1
+      }
+    },
+    {
+      "name": "EquationGroup",
+      "category": "unknown",
+      "path": "APT-Groups/EquationGroup",
+      "campaigns": [],
+      "ioc_count": 422,
+      "ioc_breakdown": {
+        "cve": 21,
+        "md5": 143,
+        "sha1": 59,
+        "sha256": 65,
+        "domain": 116,
+        "ipv4": 18
+      }
+    },
+    {
+      "name": "EtherRAT",
+      "category": "rat",
+      "path": "Malware/RATs/EtherRAT",
+      "campaigns": [],
+      "ioc_count": 92,
+      "ioc_breakdown": {
+        "ipv4": 3,
+        "domain": 10,
+        "sha256": 11,
+        "contract": 12,
+        "wallet": 13,
+        "third-party service": 1,
+        "method id": 2,
+        "build id": 2,
+        "file path": 7,
+        "registry key": 1,
+        "rpc endpoint": 9,
+        "api endpoint": 2,
+        "url": 19
+      }
+    },
+    {
+      "name": "FIN7",
+      "category": "unknown",
+      "path": "APT-Groups/FIN7",
+      "campaigns": [],
+      "ioc_count": 2817,
+      "ioc_breakdown": {
+        "sha1": 472,
+        "md5": 360,
+        "sha256": 940,
+        "domain": 526,
+        "ipv4": 300,
+        "cve": 16,
+        "filename": 7,
+        "url": 171,
+        "indicator": 25
+      }
+    },
+    {
+      "name": "Kimsuky-APT43",
+      "category": "unknown",
+      "path": "APT-Groups/Kimsuky-APT43",
+      "campaigns": [
+        "2024_ApplePhishing"
+      ],
+      "ioc_count": 11,
+      "ioc_breakdown": {
+        "ipv4": 10,
+        "domain": 1
+      }
+    },
+    {
+      "name": "LummaStealer",
+      "category": "unknown",
+      "path": "Malware/Stealers/LummaStealer",
+      "campaigns": [],
+      "ioc_count": 817,
+      "ioc_breakdown": {
+        "ipv4": 208,
+        "sha256": 200,
+        "domain": 209,
+        "url": 200
+      }
+    },
+    {
+      "name": "MeduzaStealer",
+      "category": "unknown",
+      "path": "Malware/Stealers/MeduzaStealer",
+      "campaigns": [],
+      "ioc_count": 13,
+      "ioc_breakdown": {
+        "ipv4": 13
+      }
+    },
+    {
+      "name": "MuddyWater",
+      "category": "apt_group",
+      "path": "APT-Groups/MuddyWater",
+      "campaigns": [
+        "2023-07_DHCSpy",
+        "2024-09_Campaign",
+        "2024-09_MuddyViper",
+        "2025_MuddyWater",
+        "2026-01_Olalampo",
+        "2026-01_RustyWater"
+      ],
+      "ioc_count": 307,
+      "ioc_breakdown": {
+        "sha256": 41,
+        "domain": 41,
+        "ipv4": 53,
+        "url": 15,
+        "filename": 4,
+        "username": 3,
+        "sha1": 110,
+        "telegram_bot": 1,
+        "domain_name": 1,
+        "md5": 38
+      }
+    },
+    {
+      "name": "OdysseyStealer",
+      "category": "stealer",
+      "path": "Malware/Stealers/OdysseyStealer",
+      "campaigns": [],
+      "ioc_count": 51,
+      "ioc_breakdown": {
+        "ipv4": 10,
+        "domain": 3,
+        "sha256": 13,
+        "api endpoint": 6,
+        "md5": 1,
+        "build id": 2,
+        "affiliate": 2,
+        "file path": 7,
+        "process pattern": 3,
+        "meta tag": 4
+      }
+    },
+    {
+      "name": "RedDelta",
+      "category": "unknown",
+      "path": "APT-Groups/RedDelta",
+      "campaigns": [],
+      "ioc_count": 287,
+      "ioc_breakdown": {
+        "domain": 115,
+        "ipv4": 44,
+        "sha256": 108,
+        "filepath": 20
+      }
+    },
+    {
+      "name": "ScatteredSpider",
+      "category": "unknown",
+      "path": "APT-Groups/ScatteredSpider",
+      "campaigns": [],
+      "ioc_count": 211,
+      "ioc_breakdown": {
+        "cve": 3,
+        "sha256": 23,
+        "ipv4": 108,
+        "domain": 43,
+        "sha1": 17,
+        "md5": 17
+      }
+    },
+    {
+      "name": "SideWinder",
+      "category": "unknown",
+      "path": "APT-Groups/SideWinder",
+      "campaigns": [],
+      "ioc_count": 361,
+      "ioc_breakdown": {
+        "sha256": 72,
+        "url": 2,
+        "md5": 58,
+        "domain": 117,
+        "ipv4": 64,
+        "sha1": 45,
+        "cve": 3
+      }
+    },
+    {
+      "name": "SnakeKeylogger",
+      "category": "unknown",
+      "path": "Malware/Stealers/SnakeKeylogger",
+      "campaigns": [],
+      "ioc_count": 19,
+      "ioc_breakdown": {
+        "filename": 1,
+        "sha256": 5,
+        "command line": 5,
+        "file path": 1,
+        "process name": 1,
+        "email": 1,
+        "smtp server": 1,
+        "smtp receiver": 1,
+        "smtp port": 1,
+        "registry path": 1,
+        "communication": 1
+      }
+    },
+    {
+      "name": "Storm-1811",
+      "category": "unknown",
+      "path": "APT-Groups/Storm-1811",
+      "campaigns": [],
+      "ioc_count": 15,
+      "ioc_breakdown": {
+        "domain": 10,
+        "sha256": 5
+      }
+    },
+    {
+      "name": "VenusC2",
+      "category": "c2_framework",
+      "path": "C2-Frameworks/VenusC2",
+      "campaigns": [],
+      "ioc_count": 5,
+      "ioc_breakdown": {
+        "ipv4": 1,
+        "url": 4
+      }
+    },
+    {
+      "name": "VoltTyphoon",
+      "category": "unknown",
+      "path": "APT-Groups/VoltTyphoon",
+      "campaigns": [],
+      "ioc_count": 189,
+      "ioc_breakdown": {
+        "md5": 33,
+        "sha1": 46,
+        "sha256": 75,
+        "ipv4": 31,
+        "domain": 1,
+        "cve": 3
+      }
+    }
+  ],
+  "type_summary": {
+    "sha256": 3074,
+    "ipv4": 2679,
+    "domain": 2398,
+    "sha1": 1794,
+    "md5": 1778,
+    "url": 413,
+    "cve": 119,
+    "indicator": 25,
+    "filepath": 20,
+    "file path": 15,
+    "wallet": 14,
+    "contract": 13,
+    "filename": 12,
+    "string": 12,
+    "rpc endpoint": 9,
+    "api endpoint": 8,
+    "command line": 5,
+    "tech_stack": 4,
+    "build id": 4,
+    "meta tag": 4,
+    "username": 3,
+    "js_hash": 3,
+    "http_header": 3,
+    "file_path": 3,
+    "process pattern": 3,
+    "port": 2,
+    "css_hash": 2,
+    "method id": 2,
+    "affiliate": 2,
+    "registry": 1,
+    "telegram_bot": 1,
+    "domain_name": 1,
+    "ssl_sha256": 1,
+    "jarm": 1,
+    "asn": 1,
+    "organization": 1,
+    "ssl_cn": 1,
+    "ssl_sha1": 1,
+    "ja3s": 1,
+    "html_title": 1,
+    "html_description": 1,
+    "html_hash": 1,
+    "title_hash": 1,
+    "favicon_hash": 1,
+    "dom_hash": 1,
+    "headers_hash": 1,
+    "build_id": 1,
+    "blockchain": 1,
+    "rpc": 1,
+    "certificate_serial": 1,
+    "certificate_validity": 1,
+    "tls_cipher": 1,
+    "tls_version": 1,
+    "isp": 1,
+    "location": 1,
+    "tag": 1,
+    "third-party service": 1,
+    "registry key": 1,
+    "process name": 1,
+    "email": 1,
+    "smtp server": 1,
+    "smtp receiver": 1,
+    "smtp port": 1,
+    "registry path": 1,
+    "communication": 1
+  }
+}

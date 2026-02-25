@@ -1,0 +1,22 @@
+# ============================================
+# [Threat Name] — Hunting Queries
+# Last Updated: YYYY-MM-DD
+# ============================================
+
+# --- Shodan ---
+
+
+# --- Censys ---
+
+
+# --- FOFA ---
+
+
+# --- Google Dork ---
+
+
+# --- ANY.RUN TI Lookup ---
+
+
+# --- VirusTotal ---
+

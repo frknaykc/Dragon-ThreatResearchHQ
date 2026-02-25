@@ -1,0 +1,161 @@
+{
+  "type": "bundle",
+  "id": "bundle--REPLACE-WITH-UUID",
+  "spec_version": "2.1",
+  "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+  "objects": [
+    {
+      "type": "threat-actor",
+      "spec_version": "2.1",
+      "id": "threat-actor--REPLACE-WITH-UUID",
+      "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "modified": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "name": "THREAT_ACTOR_NAME",
+      "description": "Brief description of the threat actor.",
+      "aliases": [],
+      "threat_actor_types": ["nation-state"],
+      "roles": ["agent"],
+      "sophistication": "advanced",
+      "resource_level": "government",
+      "primary_motivation": "organizational-gain",
+      "goals": [],
+      "first_seen": "YYYY-MM-DDTHH:MM:SS.000Z"
+    },
+    {
+      "type": "malware",
+      "spec_version": "2.1",
+      "id": "malware--REPLACE-WITH-UUID",
+      "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "modified": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "name": "MALWARE_NAME",
+      "description": "Brief description of the malware.",
+      "malware_types": ["remote-access-trojan"],
+      "is_family": true,
+      "first_seen": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "capabilities": [
+        "communicates-with-c2"
+      ],
+      "implementation_languages": [],
+      "architecture_execution_envs": ["windows"]
+    },
+    {
+      "type": "campaign",
+      "spec_version": "2.1",
+      "id": "campaign--REPLACE-WITH-UUID",
+      "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "modified": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "name": "CAMPAIGN_NAME",
+      "description": "Brief description of the campaign.",
+      "first_seen": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "last_seen": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "objective": "Campaign objective"
+    },
+    {
+      "type": "infrastructure",
+      "spec_version": "2.1",
+      "id": "infrastructure--REPLACE-WITH-UUID",
+      "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "modified": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "name": "C2 Infrastructure",
+      "description": "C2 server description.",
+      "infrastructure_types": ["command-and-control"]
+    },
+    {
+      "type": "attack-pattern",
+      "spec_version": "2.1",
+      "id": "attack-pattern--REPLACE-WITH-UUID",
+      "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "modified": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "name": "TECHNIQUE_NAME",
+      "description": "TXXXX.XXX - Technique Description",
+      "external_references": [
+        {
+          "source_name": "mitre-attack",
+          "external_id": "TXXXX",
+          "url": "https://attack.mitre.org/techniques/TXXXX/"
+        }
+      ]
+    },
+    {
+      "type": "indicator",
+      "spec_version": "2.1",
+      "id": "indicator--REPLACE-WITH-UUID",
+      "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "modified": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "name": "IOC_NAME",
+      "description": "IOC description.",
+      "indicator_types": ["malicious-activity"],
+      "pattern": "[ipv4-addr:value = 'X.X.X.X']",
+      "pattern_type": "stix",
+      "pattern_version": "2.1",
+      "valid_from": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "confidence": 90
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--REPLACE-WITH-UUID",
+      "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "modified": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "relationship_type": "uses",
+      "description": "THREAT_ACTOR uses MALWARE.",
+      "source_ref": "threat-actor--REPLACE-WITH-UUID",
+      "target_ref": "malware--REPLACE-WITH-UUID"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--REPLACE-WITH-UUID",
+      "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "modified": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "relationship_type": "attributed-to",
+      "description": "CAMPAIGN is attributed to THREAT_ACTOR.",
+      "source_ref": "campaign--REPLACE-WITH-UUID",
+      "target_ref": "threat-actor--REPLACE-WITH-UUID"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--REPLACE-WITH-UUID",
+      "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "modified": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "relationship_type": "uses",
+      "description": "CAMPAIGN uses MALWARE.",
+      "source_ref": "campaign--REPLACE-WITH-UUID",
+      "target_ref": "malware--REPLACE-WITH-UUID"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--REPLACE-WITH-UUID",
+      "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "modified": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "relationship_type": "uses",
+      "description": "MALWARE uses INFRASTRUCTURE.",
+      "source_ref": "malware--REPLACE-WITH-UUID",
+      "target_ref": "infrastructure--REPLACE-WITH-UUID"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--REPLACE-WITH-UUID",
+      "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "modified": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "relationship_type": "uses",
+      "description": "MALWARE uses ATTACK_PATTERN.",
+      "source_ref": "malware--REPLACE-WITH-UUID",
+      "target_ref": "attack-pattern--REPLACE-WITH-UUID"
+    },
+    {
+      "type": "relationship",
+      "spec_version": "2.1",
+      "id": "relationship--REPLACE-WITH-UUID",
+      "created": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "modified": "YYYY-MM-DDTHH:MM:SS.000Z",
+      "relationship_type": "indicates",
+      "description": "INDICATOR indicates MALWARE.",
+      "source_ref": "indicator--REPLACE-WITH-UUID",
+      "target_ref": "malware--REPLACE-WITH-UUID"
+    }
+  ]
+}

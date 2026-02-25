@@ -1,0 +1,6 @@
+type,value,description,threat,first_seen,last_seen,confidence,source,tlp,tags
+ipv4,45.8.157.134,Venus C2 Server,Venus C2,2026-02,,high,OSINT,white,c2;panel
+url,/api/agent/checkin,Agent Check-in Endpoint,Venus C2,,,medium,Analysis,white,api;c2
+url,/api/agent/register,Agent Registration Endpoint,Venus C2,,,medium,Analysis,white,api;c2
+url,/api/command/queue,Command Queue Endpoint,Venus C2,,,medium,Analysis,white,api;c2
+url,/api/exfil/upload,File Exfiltration Endpoint,Venus C2,,,medium,Analysis,white,api;exfil

@@ -1,0 +1,2 @@
+type,value,description,threat_actor,campaign,confidence,source,tags
+domain,nomercys.it.com,RustyWater C2 domain,MuddyWater,RustyWater,high,CloudSEK/THN,c2;rust
