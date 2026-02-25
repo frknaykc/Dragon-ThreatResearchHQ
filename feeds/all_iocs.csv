@@ -5475,6 +5475,11 @@ sha256,02 mfa_file_2024.pdf.chm,SHA256: 4b91ab01ad75b5485d4f8d33fa3c0aff,BitterA
 ipv4,iboxencentrum.com,Task Name: ChromeCrashReport,BitterAPT,2024_DefenseSector,high,,
 sha256,E-Invitation_Letter_Brief_details_of_Program.msc,SHA256: 85d81c341d44e33834282da279133a8e,BitterAPT,2024_DefenseSector,high,,
 ipv4,bakuackermannfashions.com,Schedule Task Name: WindowsDefenderCacheMaintenance,BitterAPT,2024_DefenseSector,high,,
+sha256,60c70cdcb1e998bffed2e6e7298e1ab6bb3d90df04e437486c04e77c411cae4b,DynoWiper - HMI wiper (Mersenne Twister),DragonFly-GhostBlizzard,2025-12_PolishGrid,high,Truesec/CERT.PL,wiper;dynowiper;hmi
+sha256,835b0d87ed2d49899ab6f9479cddb8b4e03f5aeb2365c50a51f9088dcede68d5,DynoWiper - HMI wiper variant,DragonFly-GhostBlizzard,2025-12_PolishGrid,high,Truesec/CERT.PL,wiper;dynowiper;hmi
+sha256,65099f306d27c8bcdd7ba3062c012d2471812ec5e06678096394b238210f0f7c,DynoWiper - HMI wiper variant,DragonFly-GhostBlizzard,2025-12_PolishGrid,high,Truesec/CERT.PL,wiper;dynowiper;hmi
+sha256,d1389a1ff652f8ca5576f10e9fa2bf8e8398699ddfc87ddd3e26adb201242160,DynoWiper - HMI wiper variant,DragonFly-GhostBlizzard,2025-12_PolishGrid,high,Truesec/CERT.PL,wiper;dynowiper;hmi
+cve,CVE-2011-0611,Adobe Flash Player RCE (client execution),DragonFly-GhostBlizzard,2025-12_PolishGrid,high,Truesec,exploit;flash;legacy
 sha256,341f27419becc456b52d6fbe2d223e8598065ac596fa8dec23cc722726a28f62,Unmanned_Vehicle_Systems_Conference_2025_In_Istanbul.lnk,DroppingElephant,,high,,
 sha256,588021b5553838fae5498de40172d045b5168c8e608b8929a7309fd08abfaa93,Unmanned_Vehicle_Systems_Conference_2025_In_Istanbul.pdf,DroppingElephant,,high,,
 sha256,2cd2a4f1fc7e4b621b29d41e42789c1365e5689b4e3e8686b80f80268e2c0d8d,libvlc.dll,DroppingElephant,,high,,
@@ -9041,6 +9046,106 @@ md5,fc523904ca6e191eb2fdb254a6225577,,MuddyWater,,high,,
 md5,b867ec1cef6b1618a21853fb8cafd6e1,,MuddyWater,,high,,
 md5,57641ce5af4482038c9ea27afcc087ee,,MuddyWater,,high,,
 md5,fe5f94e5df19d95df26aaf774daad9df,,MuddyWater,,high,,
+sha256,44fc9e306763774b50b61fc7487aa1d219aa288aefa201119c7bc278e17600a8,Tornado v51 WinRAR exploit RAR file,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,tornado;exploit;winrar
+sha256,5db4ed7d07ab028ab6ceba8efec5f667d86a419020d2a8c86e90a3125aa31bb9,Tornado v51 SFX file (tozihat.doc),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,tornado;sfx
+sha256,8DB20544F280955ED3EF3C42DC8423E3000E244FC7C8F0E3A7567FA48F7A15D9,Tornado v51 main DLL - AuthFWSnapin.dll,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,tornado;backdoor
+sha256,B937024B7484B26D09BA8130CC4AB04600DC18C976BB0C7724A063F1FC6F0D77,Tornado installer DLL - reg7989.dll,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,tornado;installer
+sha256,CB6ED0DD5DBC2E34AE36DD22B9522F7EEC94BBFDA2DCDA7425736656279F8CDF,Tonnerre v14 exe,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,tonnerre;backdoor
+sha256,30C20ADA243B7E476E006DEC94876BDEECE4F8ACA12A4CB6CF962C80F1A6EE3C,Tonnerre v15 exe,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,tonnerre;backdoor
+sha256,D9DFC8A8E3E259A517A91E2E91E3A1D6EF1D5B0886E6729BF897D6EF1B2DE722,Tonnerre v17 exe,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,tonnerre;backdoor
+sha256,C8583FDDF668808E31F993FF6BCFC6F8BA8B4C2C0C4EA51D4CCC6F5D311B6C90,Tonnerre v17 SFX,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,tonnerre;sfx
+sha256,43ccc2620229d88d5a6ca2b064da0554ec3c3cc29a097e7a2d97283257cfae69,Foudre v34 SFX,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,foudre;sfx
+sha256,0bfc11c6ba57fdaa8b865555d80d8f7d7b1d0f41a23a277885198b3113c945d9,Foudre v34 SFX,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,foudre;sfx
+sha256,Cf64bf78ce570f8085110defc8ec32ff4f01c7359723510b9d1923fd93d12240,Foudre v34 SFX,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,foudre;sfx
+sha256,FBB2AC0D07B84068AA35376CC994039F9FC1D2341643BC2BF268D65AB11ECBE3,Foudre v34 SFX,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,foudre;sfx
+sha256,2c46406fb9111e0e4d982de54f335ae2900cdc39490d58f765cd5014153b3e12,Foudre v34 SFX,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,foudre;sfx
+sha256,52abb57bf6f9db815b3ddf6241e21d4096f36eb998bb51e728bbe68c0f8e8e15,Foudre v34 DLL (d232),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,foudre;dll
+sha256,fa95a09e538b8c186a3239e3ff80ec9054b50aab80c624e75563ace4e60e31da,Foudre v34 DLL (d463),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,foudre;dll
+sha256,F54cfe296186644d0fed271c469af1ef9b6156affe9e030e7b83b8de097eb1e7,Foudre v34 DLL (D665),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,foudre;dll
+sha256,6f976a685ae838a7062fb4f152c6c77c42168b78b9aadd4278ec1c19f9bc1055,Foudre v34 DLL (D955),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,foudre;dll
+sha256,12847DC6DFD86603E8F0085AE561B4B2E3089E5414E49628F7C411483C7B5CE8,Foudre v34 DLL,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,foudre;dll
+sha256,d3d8b79f86f152338aabeadfaf35ba2e43f82aa4bfa29ff70b59702b455fa6a6,Foudre v34 Loader - conf8830.dll,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,foudre;loader
+sha256,15dd41ec1bdaabb741e8cc6481e0a98831798ac4e93c2513cdbd00c51241ffb7,Foudre Office infection doc,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,foudre;office;maldoc
+sha256,52e3a856548825ec0a3d6630e881ff4f79d2a11bc3420a73d42e161fabed53d9,Foudre Office infection doc,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,foudre;office;maldoc
+sha256,C1896C20E1E397F8C59DBEAEF37CC765D401C8F6D933B140BE774F0FBF118EF4,ZZ Stealer ZIP - Enrich-ASUS strike-back,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer;strike-back
+sha256,8abfe36182573e1ba1e6e0d227d60d83002191b7e30a88064c073814b0baf318,ZZ Stealer ZIP - Vladimir-WIN11 strike-back,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer;strike-back
+sha256,2312e7f362650f642a1c6319817219ca85100bdbfa07d4c0a54212e507d4970b,ZZ Stealer ZIP (older - Ong.zip),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer
+sha256,da6dd7f8cf4460ca1364ab18a74160ad49a28e412c05a41fbffbf6c93452dcd7,ZZ Stealer ZIP (older - Joris-ASUS1337),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer
+sha256,F9B963235B954C521096256A10D8E8DCE0092C9CA054E78DCE3CAC63756D0976,ZZ Stealer v3.81 executable,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer;infostealer
+sha256,D33A70E5066BBE06C8E12C45612359D452CBCAF009221AB5CC4F5B9ADD6B2CCB,ZZ Stealer v3.81 executable,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer;infostealer
+sha256,600C0C0BF6233C99F75B0427075E8AB9ACF23F4F7970C09FA4C2580EF6EB2C67,ZZ Stealer v3.81 executable,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer;infostealer
+sha256,83441B424807CD432F87770723289271DD9592848D863D349E3FBEED8F367370,ZZ Stealer v3.81 executable,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer;infostealer
+sha256,AB48FF49A9D33896BDE49117162049EEF3617CE4B85378D33F1D08BA06DF77E7,ZZ Stealer v3.81 executable,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer;infostealer
+sha256,ACD7308C4C250B0740418A2175CA804EF8E26A7E5C96474A3F84320D31ABE45C,ZZ Stealer v3.82 (chrome.exe),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer;infostealer
+sha256,A6EB64BF9C52FED2EB043E94BC9FA69A1EA836DAE82EA1E87E55A9E4828F1E38,ZZ Stealer v3.82,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer;infostealer
+sha256,4cf48c2a3933ac4c6733533bf16d40fa4e411fbbf42b03d84d6c8df62e253ad0,ZZ Stealer AB version,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer;ab-variant
+sha256,8897994e897bb1b2d22188d332ea972eff725b3b02b9dab0e5b5e73ab60d79c4,ZZ Stealer AB version,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer;ab-variant
+sha256,7f2177c2eeafb491342814820f37cee8f3eab6e8c9566d7b6131d228616ca189,ZZ Stealer AB version,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer;ab-variant
+sha256,410033e46e926202a4c152237609f866d7278d66bae965af17c0c0792228a993,ZZ Stealer AB version,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,zz-stealer;ab-variant
+sha256,4EDF2A61C1A4AF58990FE72A746D9B810CD173DDB40BAF56231A580095B6C252,AB Metasploit payload,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,metasploit;ab-variant
+sha256,7e0b5396f1f00177e19b7887137dcc314dccee09f5855c1b6a60129c65310a24,AB Metasploit payload,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,metasploit;ab-variant
+sha256,9236d5d27fdf34bc757a0aae3b4d3e1446282b8f38d9ff700702fad16c8e7ec9,AB Metasploit payload,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,metasploit;ab-variant
+sha256,4398063cd50c77b8d28f15c35b5948165b356f33dd7c4504eeac0c328fe97487,StormKitty 8==3 version,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,stormkitty;infostealer
+sha256,F1cdf63ba69eeed3ddc0a353af01843a91dd80dd0fba07940604062da0fed511,StormKitty 8==3 version,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,stormkitty;infostealer
+sha256,29529eb346f6dad7815e604af1af3931d3c9c42db7ec0a1d90484713ce7089d7,StormKitty Monkey version (no ConfuserEx),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,stormkitty;monkey
+sha256,34692cabe9e9ba584ec2b8947a7aad4f787d10a3da56886e52d05d0675fe7b01,MaxPinner v5 - Tel jam shid.exe,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,maxpinner;legacy
+sha256,5AD83F9FAD87273593F9DF73761DE211A704E6E10984FDE113A6435CC83C1E58,MaxPinner v8,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,maxpinner;legacy
+sha256,04844b5e15750467224c29b6fe5806e4093cd1d0ee4904dccf96831947574c85,MaxPinner v8 SFX,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,maxpinner;legacy
+sha256,B9741ad9ac084fb43804618acabe637f6b097bf72264b3335514678b2d0da785,Amaq Finder v1.0 (2017),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,amaq-finder;legacy
+sha256,A107635083212c662dbb3b69951e0de7b3d3894d8bcd7cfff545d119f81aeb1f,Amaq Finder v1.0 RAR,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,amaq-finder;legacy
+sha256,23761caf7f4c6d7b3b4608c59729eb807c961deaa23aac94db5289b9b9739864,Amaq Finder v1.7,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,amaq-finder;legacy
+sha256,09a2f03b5d54b48ba5f0df9ea57a6c20ba6fa90ad0f334132ea1da9320fbfbfd,Amaq Finder v1.7,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,amaq-finder;legacy
+sha256,a8565b678857129158904760ffe468e3ea6e4cf8a63a6c16b97e5717b1e8a384,Amaq Finder v1.7,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,amaq-finder;legacy
+sha256,DE94830B9B4DF6867B7D2888ACCA9F3D0C103933B01721C04E6BD6492BDE9E58,Amaq Finder key file - amfkey01.key,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,amaq-finder;legacy
+sha256,55d60bcf83c81fff25ca413dc2f720a671f522d79cc13b6d618f7f25094acd62,Deep Freeze version,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,legacy
+sha256,B1a16dd0500c570fb44cd13b68737fcd18710072559f810f3b3691ca93787cff,Deep Freeze version,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,legacy
+sha256,39cdff475bb6d03e56d047b0d00b352c2c61b4d3a3c7b7b06262bf84e481dee9,Deep Freeze version,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,legacy
+sha256,090b78e9d935867ad357f5a6a028b88ff16847271d88aeb63ba22c65a947b0ac,Phantom Stealer source code ZIP,PrinceOfPersia,2025-12_Tornado,medium,SafeBreach,phantom-stealer;builder
+sha256,631AE7074649A665D62AC6FC940D203EFF715C88B4B57EE46865286607909231,FlashFXP FTP client (benign - test download),PrinceOfPersia,2025-12_Tornado,low,SafeBreach,test;benign
+sha256,2c202cd79bfd44e8f474d58df02d4882b5c45c2c06fba1adb5e488d41ca47f04,VBS dropper (possible APT33 link),PrinceOfPersia,2025-12_Tornado,medium,SafeBreach,vbs;apt33-link
+sha256,75900c975601b657f881164daddb4bc8e8b723883c2b7a4ac0ff91f25a8397ad,Remcos RAT (possible APT33 link),PrinceOfPersia,2025-12_Tornado,medium,SafeBreach,remcos;apt33-link
+ipv4,45.80.148.249,Active Tornado/Foudre C2 server,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;active
+ipv4,45.80.148.195,Abandoned Tornado C2 server,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;abandoned
+ipv4,45.80.149.3,Active Foudre+Tonnerre C2 server,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;active
+ipv4,45.80.149.100,Historical C2 (Feb-May 2025),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;historical
+ipv4,45.80.148.35,Abandoned Tonnerre C2,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;abandoned
+ipv4,45.80.148.124,Historical Tonnerre v50 C2 (Jul-Aug 2025),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;historical
+ipv4,209.38.92.52,ZZ Stealer C2 server (active),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;zz-stealer;active
+ipv4,128.199.113.162,Historical ZZ Stealer C2 (pre-2022),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;zz-stealer;historical
+ipv4,191.101.130.244,Phantom Stealer / possible APT33 RDP,PrinceOfPersia,2025-12_Tornado,medium,SafeBreach,c2;phantom-stealer;apt33-link
+ipv4,104.248.194.233,AB Metasploit C2 (port 443),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;metasploit
+domain,szzqwggurg.hbmc.net,Tornado C2 domain (45.80.148.249),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga
+domain,szzqwggurg.conningstone.net,Tornado C2 domain (45.80.148.249),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga
+domain,kbbpissmqs.conningstone.net,Tornado C2 domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga
+domain,kbbpissmqs.hbmc.net,Tornado C2 domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga
+domain,vssmqppaup.conningstone.net,Tornado C2 domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga
+domain,vssmqppaup.hbmc.net,Tornado C2 domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga
+domain,skttxrdwucbw.hbmc.net,Tornado C2 domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga
+domain,skttxrdwucbw.conningstone.net,Tornado C2 domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga
+domain,vtykvjbmhkpah.hbmc.net,Tornado C2 domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga
+domain,uiavuflyjqodj.hbmc.net,Tornado C2 domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga
+domain,uiavuflyjqodj.conningstone.net,Tornado C2 domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga
+domain,lklptttt.space,Foudre C2 domain (45.80.149.3),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;foudre
+domain,onnmuoru.privatedns.org,Foudre C2 domain (45.80.149.3),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;foudre
+domain,noonrpxv.privatedns.org,Tonnerre v17 C2 domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;tonnerre
+domain,26edd0a4.ddns.net,Tonnerre v12 C2 domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;tonnerre
+domain,92c5d3b3.ddns.net,Tonnerre v12-16 C2 domain (abandoned),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;tonnerre;abandoned
+domain,f13.ddnsking.com,Tonnerre fixed domain (post-blackout),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;tonnerre;post-blackout
+domain,t13.ddnsking.com,Foudre fixed domain (post-blackout),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;foudre;post-blackout
+domain,joqoqwtu.privatedns.org,Tonnerre DGA domain (post-blackout),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga;post-blackout
+domain,klnptruu.space,Foudre DGA domain (post-blackout),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga;post-blackout
+domain,tegfxbnk.site,Historical Foudre DGA domain (Feb-May 2025),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga;historical
+domain,ejjnhkucbw.ix.tc,First known Foudre v50 C2 domain (Feb 2025),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;dga;historical
+domain,xjhdvkoszwdpt.privatedns.org,Tonnerre v50 C2 domain (Jul-Aug 2025),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;tonnerre;historical
+domain,querylist.online,Blockchain DGA resolved domain (fixed),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;blockchain-dga
+domain,dnsbroadcaster.lat,Blockchain DGA resolved domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;blockchain-dga
+domain,phantomsoftwares.site,Phantom Stealer distribution,PrinceOfPersia,2025-12_Tornado,medium,SafeBreach,phantom-stealer
+domain,whppczunsijn.site,Tornado HTTP C2 request domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;tornado
+domain,hkdhhwsafvnef.site,Tornado HTTP C2 request domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;tornado
+domain,hkdhhwsafvnef.hbmc.net,Tornado HTTP C2 request domain,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;tornado
+url,http://209.38.92.52/RdstgcDe/upwawsfrg.php,ZZ Stealer C2 exfiltration URL,PrinceOfPersia,2025-12_Tornado,high,SafeBreach,c2;zz-stealer;exfiltration
+cve,CVE-2025-8088,WinRAR vulnerability (Tornado infection vector),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,exploit;winrar
+cve,CVE-2025-6218,WinRAR vulnerability (alternative),PrinceOfPersia,2025-12_Tornado,high,SafeBreach,exploit;winrar
 domain,abecopiers.com,RedDelta,RedDelta,,high,,
 domain,alicevivianny.com,RedDelta,RedDelta,,high,,
 domain,aljazddra.com,RedDelta,RedDelta,,high,,
@@ -9915,6 +10020,12 @@ domain,instance-olqdnn-relay.screenconnect.com,screenconnect relay,Storm-1811,,h
 domain,greekpool.com,netsupport c2,Storm-1811,,high,,
 domain,zziveastnews.com,cobalt strike beacon c2,Storm-1811,,high,,
 domain,realsepnews.com,cobalt strike beacon c2,Storm-1811,,high,,
+domain,twsww.xin,C2 delivery domain,VoidArachne-SilverFox,,high,Rescana,c2;delivery
+cve,CVE-2026-23550,Exploited vulnerability,VoidArachne-SilverFox,,medium,OSINT,exploit
+cve,CVE-2026-20805,Exploited vulnerability,VoidArachne-SilverFox,,medium,OSINT,exploit
+cve,CVE-2025-32433,Erlang/OTP SSH RCE,VoidArachne-SilverFox,,medium,OSINT,exploit
+cve,CVE-2025-31324,SAP NetWeaver unrestricted file upload,VoidArachne-SilverFox,,medium,OSINT,exploit
+cve,CVE-2025-29927,Next.js middleware bypass,VoidArachne-SilverFox,,medium,OSINT,exploit
 md5,b1de37bf229890ac181bdef1ad8ee0c2,,VoltTyphoon,,high,,
 md5,f9943591918adeeeee7da80e4d985a49,,VoltTyphoon,,high,,
 md5,fd41134e8ead1c18ccad27c62a260aa6,,VoltTyphoon,,high,,
@@ -11464,6 +11575,10 @@ tls_version,TLSv1.2,TLS Protocol Version,AeternumLoader,,LOW,,
 isp,HostPapa,Internet Service Provider,AeternumLoader,,LOW,,
 location,"Buffalo, NY, US",Geographic Location,AeternumLoader,,LOW,,
 tag,self-signed,Certificate Type,AeternumLoader,,MEDIUM,,
+cve,CVE-2020-14979,WinRing0x64.sys privilege escalation (BYOVD),XMRig-BYOVD,,high,DailyTechFeed,byovd;kernel;privilege-escalation
+cve,CVE-2025-55182,React2Shell vulnerability exploited by ILOVEPOOP toolkit,XMRig-BYOVD,,high,DailyTechFeed/Darktrace,react2shell;ai-generated
+filename,WinRing0x64.sys,Vulnerable driver used for BYOVD kernel exploitation,XMRig-BYOVD,,high,DailyTechFeed,byovd;driver
+filename,barusu,Self-destruct command argument for dropper,XMRig-BYOVD,,medium,DailyTechFeed,self-destruct;logic-bomb
 ipv4,91.215.85.42,Primary C2 Server (Port 3000),EtherRAT,,critical,Sysdig,c2;bulletproof;tsundere
 ipv4,173.249.8.102,C2 Server Contabo Germany,EtherRAT,,high,Analysis,c2
 ipv4,91.221.190.12,C2 Server BlueVPS Russia,EtherRAT,,high,Analysis,c2
@@ -12435,10 +12550,10 @@ file path,/Library/LaunchDaemons/com.{5-digit-number}.plist,Persistence LaunchDa
 process pattern,osascript executing long encoded commands,Initial payload execution indicator,OdysseyStealer,,high,,
 process pattern,curl with buildid and username headers,Data exfiltration indicator,OdysseyStealer,,high,,
 process pattern,LaunchDaemon with randomized com.{number} label,Persistence indicator,OdysseyStealer,,high,,
-meta tag,"<meta name=""description"""""""""""""""" content=""""""""""""""""Odyssey - Advanced Dashboard"""""""""""""""">""""""""""""""",Panel fingerprint (original branding),OdysseyStealer,,high,,
-meta tag,"<meta name=""description"""""""""""""""" content=""""""""""""""""MacOS - Advanced Dashboard"""""""""""""""">""""""""""""""",Panel fingerprint (rebranded),OdysseyStealer,,high,,
-meta tag,"<meta name=""description"""""""" content=""""""""Odyssey - Advanced Dashboard"""""""">""""""",Panel fingerprint (original branding),OdysseyStealer,,high,,
-meta tag,"<meta name=""description"""""""" content=""""""""MacOS - Advanced Dashboard"""""""">""""""",Panel fingerprint (rebranded),OdysseyStealer,,high,,
+meta tag,"<meta name=""description"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" content=""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Odyssey - Advanced Dashboard"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""">""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""",Panel fingerprint (original branding),OdysseyStealer,,high,,
+meta tag,"<meta name=""description"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" content=""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""MacOS - Advanced Dashboard"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""">""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""",Panel fingerprint (rebranded),OdysseyStealer,,high,,
+meta tag,"<meta name=""description"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" content=""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Odyssey - Advanced Dashboard"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""">""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""",Panel fingerprint (original branding),OdysseyStealer,,high,,
+meta tag,"<meta name=""description"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" content=""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""MacOS - Advanced Dashboard"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""">""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""",Panel fingerprint (rebranded),OdysseyStealer,,high,,
 filename,TEKLIF ISTEGI - TUSAS TURK HAVACILIK UZAY SANAYII_xlsx.exe,Phishing attachment disguised as a contract document,SnakeKeylogger,,high,,
 sha256,0cb819d32cb3a2f218c5a17c02bb8c06935e926ebacf1e40a746b01e960c68e4,Primary payload SHA-256 hash,SnakeKeylogger,,high,,
 sha256,82fa8156e9d4fb47cd20908818b9172f86ed13eb683041658f242c58ce0a9cff,Hash of .NET assembly named vJfV,SnakeKeylogger,,high,,
@@ -12458,3 +12573,8 @@ communication,SMTP-FTP-Telegram-Discord,Channels used for data exfiltration,Snak
 command line,"schtasks.exe /Create /TN ""Updates\\oNqxPR"""""""" /XML""""""",Scheduled task creation for persistence,SnakeKeylogger,,high,,
 command line,"schtasks.exe /Create /TN ""Updates\\oNqxPR"""""""""""""""" /XML""""""""""""""",Scheduled task creation for persistence,SnakeKeylogger,,high,,
 command line,"schtasks.exe /Create /TN ""Updates\\oNqxPR"""""""""""""""""""""""""""""""" /XML""""""""""""""""""""""""""""""",Scheduled task creation for persistence,SnakeKeylogger,,high,,
+command line,"schtasks.exe /Create /TN ""Updates\\oNqxPR"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" /XML""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""",Scheduled task creation for persistence,SnakeKeylogger,,high,,
+command line,"schtasks.exe /Create /TN ""Updates\\oNqxPR"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" /XML""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""",Scheduled task creation for persistence,SnakeKeylogger,,high,,
+command line,"schtasks.exe /Create /TN ""Updates\\oNqxPR"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" /XML""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""",Scheduled task creation for persistence,SnakeKeylogger,,high,,
+command line,"schtasks.exe /Create /TN ""Updates\\oNqxPR"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" /XML""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""",Scheduled task creation for persistence,SnakeKeylogger,,high,,
+command line,"schtasks.exe /Create /TN ""Updates\\oNqxPR"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" /XML""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""",Scheduled task creation for persistence,SnakeKeylogger,,high,,

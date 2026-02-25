@@ -1,7 +1,7 @@
 {
-  "generated": "2026-02-25T12:51:37Z",
-  "total_iocs": 12459,
-  "total_threats": 23,
+  "generated": "2026-02-25T14:05:47Z",
+  "total_iocs": 12579,
+  "total_threats": 27,
   "threats": [
     {
       "name": "APT29-CozyBear",
@@ -131,8 +131,21 @@
       }
     },
     {
+      "name": "DragonFly-GhostBlizzard",
+      "category": "apt_group",
+      "path": "APT-Groups/DragonFly-GhostBlizzard",
+      "campaigns": [
+        "2025-12_PolishGrid"
+      ],
+      "ioc_count": 5,
+      "ioc_breakdown": {
+        "sha256": 4,
+        "cve": 1
+      }
+    },
+    {
       "name": "DroppingElephant",
-      "category": "unknown",
+      "category": "apt_group",
       "path": "APT-Groups/DroppingElephant",
       "campaigns": [],
       "ioc_count": 9,
@@ -200,7 +213,7 @@
     },
     {
       "name": "Kimsuky-APT43",
-      "category": "unknown",
+      "category": "apt_group",
       "path": "APT-Groups/Kimsuky-APT43",
       "campaigns": [
         "2024_ApplePhishing"
@@ -280,6 +293,22 @@
       }
     },
     {
+      "name": "PrinceOfPersia",
+      "category": "apt_group",
+      "path": "APT-Groups/PrinceOfPersia",
+      "campaigns": [
+        "2025-12_Tornado"
+      ],
+      "ioc_count": 100,
+      "ioc_breakdown": {
+        "sha256": 58,
+        "ipv4": 10,
+        "domain": 29,
+        "url": 1,
+        "cve": 2
+      }
+    },
+    {
       "name": "RedDelta",
       "category": "unknown",
       "path": "APT-Groups/RedDelta",
@@ -328,11 +357,11 @@
       "category": "unknown",
       "path": "Malware/Stealers/SnakeKeylogger",
       "campaigns": [],
-      "ioc_count": 19,
+      "ioc_count": 24,
       "ioc_breakdown": {
         "filename": 1,
         "sha256": 5,
-        "command line": 5,
+        "command line": 10,
         "file path": 1,
         "process name": 1,
         "email": 1,
@@ -366,6 +395,17 @@
       }
     },
     {
+      "name": "VoidArachne-SilverFox",
+      "category": "apt_group",
+      "path": "APT-Groups/VoidArachne-SilverFox",
+      "campaigns": [],
+      "ioc_count": 6,
+      "ioc_breakdown": {
+        "domain": 1,
+        "cve": 5
+      }
+    },
+    {
       "name": "VoltTyphoon",
       "category": "unknown",
       "path": "APT-Groups/VoltTyphoon",
@@ -379,26 +419,37 @@
         "domain": 1,
         "cve": 3
       }
+    },
+    {
+      "name": "XMRig-BYOVD",
+      "category": "miner",
+      "path": "",
+      "campaigns": [],
+      "ioc_count": 4,
+      "ioc_breakdown": {
+        "cve": 2,
+        "filename": 2
+      }
     }
   ],
   "type_summary": {
-    "sha256": 3074,
-    "ipv4": 2679,
-    "domain": 2398,
+    "sha256": 3136,
+    "ipv4": 2689,
+    "domain": 2428,
     "sha1": 1794,
     "md5": 1778,
-    "url": 413,
-    "cve": 119,
+    "url": 414,
+    "cve": 129,
     "indicator": 25,
     "filepath": 20,
     "file path": 15,
+    "filename": 14,
     "wallet": 14,
     "contract": 13,
-    "filename": 12,
     "string": 12,
+    "command line": 10,
     "rpc endpoint": 9,
     "api endpoint": 8,
-    "command line": 5,
     "tech_stack": 4,
     "build id": 4,
     "meta tag": 4,

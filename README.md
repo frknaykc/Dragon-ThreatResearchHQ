@@ -10,9 +10,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Threats_Tracked-23-blue" alt="Threats"/>
+  <img src="https://img.shields.io/badge/Threats_Tracked-28-blue" alt="Threats"/>
   <img src="https://img.shields.io/badge/Total_IOCs-12,459-orange" alt="IOCs"/>
-  <img src="https://img.shields.io/badge/YARA_Rules-16-green" alt="YARA"/>
+  <img src="https://img.shields.io/badge/YARA_Rules-18-green" alt="YARA"/>
   <img src="https://img.shields.io/badge/License-MIT-lightgrey" alt="License"/>
 </p>
 
@@ -36,14 +36,19 @@ Dragon-ThreatResearchHQ/
 │   ├── ScatteredSpider/     # Multi — 214 IOCs
 │   ├── SideWinder/          # India — 364 IOCs
 │   ├── Storm-1811/          # Unknown — 15 IOCs
+│   ├── DragonFly-GhostBlizzard/ # Russia (FSB) — 8 IOCs, 2 YARA (DynoWiper)
+│   ├── PrinceOfPersia/       # Iran — 95 IOCs (Tornado, Foudre, Tonnerre)
 │   ├── UNC5221/             # China
+│   ├── VoidArachne-SilverFox/ # China — 6 IOCs (ValleyRAT/Winos 4.0)
 │   └── VoltTyphoon/         # China — 194 IOCs
 │
 ├── Malware/                 # Malware families by category
 │   ├── RATs/                # EtherRAT (92), MoonriseRAT
 │   ├── Stealers/            # LummaStealer (817), OdysseyStealer (51), ...
 │   ├── Backdoors/           # Brickstorm (35)
-│   └── Loaders/             # AeternumLoader (63), Phoenix
+│   ├── Loaders/             # AeternumLoader (63), Phoenix
+│   ├── Miners/              # XMRig-BYOVD (cryptojacking)
+│   └── Wipers/              # DynoWiper + RTU Wiper (ICS/OT)
 │
 ├── C2-Frameworks/           # C2 framework analysis
 │   ├── CobaltStrike/        # 1,235 IOCs, beacon configs, YARA
@@ -78,7 +83,7 @@ Dragon-ThreatResearchHQ/
 
 ## Threat Index
 
-### APT Groups (14)
+### APT Groups (17)
 
 | Group | Origin | IOCs | Campaigns | YARA | Report |
 |-------|--------|-----:|:---------:|:----:|--------|
@@ -93,8 +98,11 @@ Dragon-ThreatResearchHQ/
 | [APT39](APT-Groups/APT39/) | Iran | 51 | — | — | — |
 | [Bitter APT](APT-Groups/BitterAPT/) | South Asia | 19 | 1 | — | [Profile](APT-Groups/BitterAPT/README.md) |
 | [Storm-1811](APT-Groups/Storm-1811/) | Unknown | 15 | — | — | — |
-| [Kimsuky / APT43](APT-Groups/Kimsuky-APT43/) | N. Korea | 11 | 1 | — | — |
-| [Dropping Elephant](APT-Groups/DroppingElephant/) | India | 9 | — | — | — |
+| [Kimsuky / APT43](APT-Groups/Kimsuky-APT43/) | N. Korea | 11 | 1 | — | [Profile](APT-Groups/Kimsuky-APT43/README.md) |
+| [DragonFly / Ghost Blizzard](APT-Groups/DragonFly-GhostBlizzard/) | Russia | 8 | 1 | [2 rules](APT-Groups/DragonFly-GhostBlizzard/Campaigns/2025-12_PolishGrid/yara/) | [Profile](APT-Groups/DragonFly-GhostBlizzard/README.md) |
+| [Dropping Elephant](APT-Groups/DroppingElephant/) | India | 9 | — | — | [Profile](APT-Groups/DroppingElephant/README.md) |
+| [Prince of Persia](APT-Groups/PrinceOfPersia/) | Iran | 95 | 1 | — | [Profile](APT-Groups/PrinceOfPersia/README.md) |
+| [Void Arachne / Silver Fox](APT-Groups/VoidArachne-SilverFox/) | China | 6 | — | — | [Profile](APT-Groups/VoidArachne-SilverFox/README.md) |
 | [UNC5221](APT-Groups/UNC5221/) | China | — | — | — | [Profile](APT-Groups/UNC5221/README.md) |
 
 ### MuddyWater Campaigns (Deep-Dive)
@@ -108,7 +116,7 @@ Dragon-ThreatResearchHQ/
 | [Sep 2024 Campaign](APT-Groups/MuddyWater/Campaigns/2024-09_Campaign/) | Sep 2024 | Various | 75 | — |
 | [2025 Campaign](APT-Groups/MuddyWater/Campaigns/2025_MuddyWater/) | 2025 | Various | 8 | — |
 
-### Malware Families (11)
+### Malware Families (13)
 
 | Malware | Type | IOCs | YARA | Report |
 |---------|------|-----:|:----:|--------|
@@ -122,6 +130,8 @@ Dragon-ThreatResearchHQ/
 | [BLX Stealer](Malware/Stealers/BLXStealer/) | Stealer | 2 | — | — |
 | [Moonrise RAT](Malware/RATs/MoonriseRAT/) | RAT | — | — | — |
 | [Phoenix](Malware/Loaders/Phoenix/) | Loader/Backdoor | — | — | [README](Malware/Loaders/Phoenix/README.md) |
+| [XMRig BYOVD](Malware/Miners/XMRig-BYOVD/) | Miner | 4 | — | [README](Malware/Miners/XMRig-BYOVD/README.md) |
+| [DynoWiper](Malware/Wipers/DynoWiper/) | Wiper (ICS) | 4 | [2 rules](Malware/Wipers/DynoWiper/yara/) | [README](Malware/Wipers/DynoWiper/README.md) |
 
 ### C2 Frameworks (2)
 
@@ -146,6 +156,8 @@ Dragon-ThreatResearchHQ/
 | Brickstorm (9 rules) | Brickstorm + Mandiant hunting | [yara/](Malware/Backdoors/Brickstorm/yara/) |
 | Lumma Stealer | Lumma variants | [yara/](Malware/Stealers/LummaStealer/yara/) |
 | Aeternum Loader | Aeternum panel/loader | [yara/](Malware/Loaders/AeternumLoader/yara/) |
+| DynoWiper Mersenne | Mersenne Twister PRNG-based wiper (HMI) | [yara/](APT-Groups/DragonFly-GhostBlizzard/Campaigns/2025-12_PolishGrid/yara/) |
+| RTU Firmware Wiper | ELF with 0xFF entry point (firmware wiper) | [yara/](APT-Groups/DragonFly-GhostBlizzard/Campaigns/2025-12_PolishGrid/yara/) |
 
 ---
 

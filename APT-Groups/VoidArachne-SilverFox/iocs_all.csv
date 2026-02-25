@@ -1,0 +1,7 @@
+type,value,description,threat_actor,campaign,confidence,source,tags
+domain,twsww.xin,C2 delivery domain,VoidArachne-SilverFox,,high,Rescana,c2;delivery
+cve,CVE-2026-23550,Exploited vulnerability,VoidArachne-SilverFox,,medium,OSINT,exploit
+cve,CVE-2026-20805,Exploited vulnerability,VoidArachne-SilverFox,,medium,OSINT,exploit
+cve,CVE-2025-32433,Erlang/OTP SSH RCE,VoidArachne-SilverFox,,medium,OSINT,exploit
+cve,CVE-2025-31324,SAP NetWeaver unrestricted file upload,VoidArachne-SilverFox,,medium,OSINT,exploit
+cve,CVE-2025-29927,Next.js middleware bypass,VoidArachne-SilverFox,,medium,OSINT,exploit

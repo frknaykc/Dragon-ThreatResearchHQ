@@ -1,0 +1,9 @@
+type,value,description,threat_actor,campaign,confidence,source,tags
+sha256,60c70cdcb1e998bffed2e6e7298e1ab6bb3d90df04e437486c04e77c411cae4b,DynoWiper - HMI wiper (Mersenne Twister),DragonFly,PolishGrid,high,Truesec/CERT.PL,wiper;dynowiper;hmi
+sha256,835b0d87ed2d49899ab6f9479cddb8b4e03f5aeb2365c50a51f9088dcede68d5,DynoWiper - HMI wiper variant,DragonFly,PolishGrid,high,Truesec/CERT.PL,wiper;dynowiper;hmi
+sha256,65099f306d27c8bcdd7ba3062c012d2471812ec5e06678096394b238210f0f7c,DynoWiper - HMI wiper variant,DragonFly,PolishGrid,high,Truesec/CERT.PL,wiper;dynowiper;hmi
+sha256,d1389a1ff652f8ca5576f10e9fa2bf8e8398699ddfc87ddd3e26adb201242160,DynoWiper - HMI wiper variant,DragonFly,PolishGrid,high,Truesec/CERT.PL,wiper;dynowiper;hmi
+cve,CVE-2019-19781,Citrix ADC/Gateway path traversal (initial access),DragonFly,PolishGrid,high,Truesec,exploit;citrix;initial-access
+cve,CVE-2020-0688,Microsoft Exchange RCE (initial access),DragonFly,PolishGrid,high,Truesec,exploit;exchange;initial-access
+cve,CVE-2018-13379,Fortinet FortiOS path traversal (VPN credentials),DragonFly,PolishGrid,high,Truesec,exploit;fortinet;vpn;initial-access
+cve,CVE-2011-0611,Adobe Flash Player RCE (client execution),DragonFly,PolishGrid,high,Truesec,exploit;flash;legacy
