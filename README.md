@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Threats_Tracked-28-blue" alt="Threats"/>
+  <img src="https://img.shields.io/badge/Threats_Tracked-29-blue" alt="Threats"/>
   <img src="https://img.shields.io/badge/Total_IOCs-12,459-orange" alt="IOCs"/>
   <img src="https://img.shields.io/badge/YARA_Rules-18-green" alt="YARA"/>
   <img src="https://img.shields.io/badge/License-MIT-lightgrey" alt="License"/>
@@ -55,7 +55,8 @@ Dragon-ThreatResearchHQ/
 │   └── VenusC2/             # 5 IOCs
 │
 ├── Campaigns/               # Standalone campaigns (not actor-specific)
-│   └── 2024-06_RegreSSHion_CVE-2024-6387/
+│   ├── 2024-06_RegreSSHion_CVE-2024-6387/
+│   └── 2024-08_GhostTap-NFC/  # Chinese NFC payment relay fraud
 │
 ├── Detection-Rules/         # Generic detection rules
 │   └── Yara/                # xor_hunter.yar, office_startup_anomaly.yar
@@ -140,11 +141,12 @@ Dragon-ThreatResearchHQ/
 | [Cobalt Strike](C2-Frameworks/CobaltStrike/) | 1,235 | [configs/](C2-Frameworks/CobaltStrike/Beacon-Configs/) | [3 rules](C2-Frameworks/CobaltStrike/yara/) | [c2_list.md](C2-Frameworks/CobaltStrike/c2_list.md) |
 | [Venus C2](C2-Frameworks/VenusC2/) | 5 | — | — | [README](C2-Frameworks/VenusC2/README.md) |
 
-### Standalone Campaigns (1)
+### Standalone Campaigns (2)
 
 | Campaign | Date | IOCs | Description |
 |----------|------|-----:|-------------|
 | [RegreSSHion CVE-2024-6387](Campaigns/2024-06_RegreSSHion_CVE-2024-6387/) | Jun 2024 | 31 | OpenSSH RCE vulnerability exploitation |
+| [Ghost Tap NFC](Campaigns/2024-08_GhostTap-NFC/) | Aug 2024 – | 167 | Chinese NFC payment relay fraud — 54 APKs, 5 C2 domains, $355K+ losses |
 
 ### Detection Rules (YARA)
 
