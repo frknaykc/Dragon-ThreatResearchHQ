@@ -421,6 +421,7 @@ availabkelk.store
 averageaattractiionsl.shop
 aviatiiitwinq.shop
 avidnewssource.com
+avipstudios.com
 awake-weaves.cyou
 awardlandscareposiw.shop
 awarenessphere.com
@@ -724,6 +725,9 @@ cityloss.com
 civilizationidium.com
 civilizationogen.com
 cj.prototype.map
+cladueall.pages.dev
+claude-code-macos.com
+claude-code.install-files.com
 clippershipintl.com
 clk-brom.ru
 clk-brom.site
@@ -777,6 +781,7 @@ consumerpanel.eu3.biz
 consumerpanel.eu3.org
 consumerspanelsrv.eu3.org
 contabilita-sdcc.com
+contatoplus.com
 content.dermloop.io
 content.pcmsar.net
 continuetogo.me
@@ -2431,3 +2436,16 @@ zw.prototype.ma
 zx.reg32.com
 zx.regcssv.com
 zziveastnews.com
+zhydromet.com
+ampolice.org
+onedriveconsole.com
+copilot-cloud.net
+drivefrontend.pa-clients.workers.dev
+revitpourtous.com
+wikipedla.blog
+protacik.com
+oicm.org
+mindssurpass.com
+exchange4study.com
+splunkds.com
+bigflx.net

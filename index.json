@@ -1,8 +1,33 @@
 {
-  "generated": "2026-02-25T14:26:01Z",
-  "total_iocs": 12756,
-  "total_threats": 27,
+  "generated": "2026-03-03T00:00:00Z",
+  "total_iocs": 12810,
+  "total_threats": 29,
   "threats": [
+    {
+      "name": "SilverDragon",
+      "category": "apt_group",
+      "path": "APT-Groups/SilverDragon",
+      "campaigns": [
+        "2026-03_SoutheastAsia-Europe"
+      ],
+      "ioc_count": 44,
+      "ioc_breakdown": {
+        "domain": 13,
+        "sha256": 31
+      }
+    },
+    {
+      "name": "AMOS-AtomicStealer",
+      "category": "stealer",
+      "path": "Malware/Stealers/AMOS-AtomicStealer",
+      "campaigns": [],
+      "ioc_count": 9,
+      "ioc_breakdown": {
+        "sha256": 1,
+        "domain": 5,
+        "url": 3
+      }
+    },
     {
       "name": "APT29-CozyBear",
       "category": "unknown",
@@ -357,11 +382,11 @@
       "category": "unknown",
       "path": "Malware/Stealers/SnakeKeylogger",
       "campaigns": [],
-      "ioc_count": 26,
+      "ioc_count": 27,
       "ioc_breakdown": {
         "filename": 1,
         "sha256": 5,
-        "command line": 12,
+        "command line": 13,
         "file path": 1,
         "process name": 1,
         "email": 1,
@@ -433,12 +458,12 @@
     }
   ],
   "type_summary": {
-    "sha256": 3190,
+    "sha256": 3191,
     "ipv4": 2689,
-    "domain": 2433,
+    "domain": 2438,
     "sha1": 1848,
     "md5": 1832,
-    "url": 414,
+    "url": 417,
     "cve": 129,
     "indicator": 27,
     "filepath": 20,
@@ -446,8 +471,8 @@
     "filename": 14,
     "wallet": 14,
     "contract": 13,
+    "command line": 13,
     "string": 12,
-    "command line": 12,
     "rpc endpoint": 9,
     "api endpoint": 8,
     "tool": 6,

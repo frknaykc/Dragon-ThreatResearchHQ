@@ -1,0 +1,45 @@
+type,value,description,threat_actor,campaign,confidence,source,tags
+domain,zhydromet[.]com,Silver Dragon C2 domain (Cobalt Strike),SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,c2;cobalt-strike
+domain,ampolice[.]org,Silver Dragon C2 domain (Cobalt Strike),SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,c2;cobalt-strike
+domain,onedriveconsole[.]com,Silver Dragon C2 domain (Cobalt Strike DNS tunneling),SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,c2;cobalt-strike;dns-tunnel
+domain,copilot-cloud[.]net,Silver Dragon C2 domain (Cobalt Strike),SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,c2;cobalt-strike
+domain,drivefrontend.pa-clients.workers[.]dev,Silver Dragon C2 domain,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,c2;cloudflare-workers
+domain,revitpourtous[.]com,Silver Dragon C2 domain (Cobalt Strike),SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,c2;cobalt-strike
+domain,wikipedla[.]blog,Silver Dragon C2 domain (Cobalt Strike),SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,c2;cobalt-strike
+domain,protacik[.]com,Silver Dragon C2 domain,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,c2
+domain,oicm[.]org,Silver Dragon C2 domain,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,c2
+domain,mindssurpass[.]com,Silver Dragon C2 domain,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,c2
+domain,exchange4study[.]com,Silver Dragon C2 domain (Cobalt Strike DNS tunneling),SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,c2;cobalt-strike;dns-tunnel
+domain,splunkds[.]com,Silver Dragon C2 domain,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,c2
+domain,bigflx[.]net,Silver Dragon C2 domain,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,c2
+sha256,4f93be0c46a53701b1777ab8df874c837df3d8256e026f138d60fc2932e569a8,GearDoor backdoor sample,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,geardoor;backdoor;dotnet;google-drive-c2
+sha256,7f89a4d5af47bc00a9ad58f0bcbe8a7be2662953dcd03f0e881cc5cbf6b7bca8,GearDoor backdoor sample,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,geardoor;backdoor;dotnet;google-drive-c2
+sha256,bcbe2f0a8134c0e7fce18d0394ababc1d910e6f7b77b8c07643434cd14f4c5d6,SSHcmd utility,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,sshcmd;utility;dotnet;ssh
+sha256,44e769efed3e4f9f04c52dcd13f15cead251a1a08827a2cb6ea68427522c7fbb,SilverScreen screen monitor,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,silverscreen;monitor;dotnet;screenshot
+sha256,85a03d2e74ae84093a74699057693d11e5c61f85b62e741778cbc5fc9f89022f,SilverScreen screen monitor,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,silverscreen;monitor;dotnet;screenshot
+sha256,51684a0e356513486489986f5832c948107ff687c8501d64846cdc4307429413,Phishing LNK attachment,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,phishing;lnk;uzbekistan
+sha256,166e777cb72a7c4e126f8ed97e0a82e7ca9e87df7793fea811daf34e1e7e47a6,Phishing LNK attachment,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,phishing;lnk;uzbekistan
+sha256,948468aba5c851952ebe56a5bf37904ed83a6c8cb520304db6938d79892f0a1b,Phishing LNK attachment,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,phishing;lnk;uzbekistan
+sha256,e3b016f2fc865d0f53f635f740eb0203626517425ed9a2908058f96a3bcf470d,BamboLoader shellcode loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,bamboloader;loader;cpp;rc4;lznt1
+sha256,967b5c611d304385807ea2d865fa561c15cde0473dd63e768679a4f29f0e4563,BamboLoader shellcode loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,bamboloader;loader;cpp;rc4;lznt1
+sha256,43f8f94ca5aa0af7bfb0cc1d2f664a46500a161b2d082b48b516d084ef485348,BamboLoader shellcode loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,bamboloader;loader;cpp;rc4;lznt1
+sha256,3128bdb8efaaa04c0ba96337252f4cc2dc795021cbc410f74ace9dde958bac1d,BamboLoader shellcode loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,bamboloader;loader;cpp;rc4;lznt1
+sha256,b93560c4d18120e113fb8b04a8aa05f66a12116d1fbf18a93186f6314381e97e,BamboLoader shellcode loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,bamboloader;loader;cpp;rc4;lznt1
+sha256,ddaca57f3d5f4986da052ca172631b351410d6f5831f6af351699c6201cc011b,BamboLoader shellcode loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,bamboloader;loader;cpp;rc4;lznt1
+sha256,c4de1f1a8cb3b0392802ee56096ddb25b6f51c51350ce7c45e14d8c285765300,BamboLoader shellcode loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,bamboloader;loader;cpp;rc4;lznt1
+sha256,7384462d420bdc9683a4cac2a8ad19353a2aa7d2244c91e9182345777e811e33,BamboLoader shellcode loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,bamboloader;loader;cpp;rc4;lznt1
+sha256,74a11a07d167f8f5c0baa724d1f7708985c81d0ac3d0e4d7ef3f3220c335e009,BamboLoader shellcode loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,bamboloader;loader;cpp;rc4;lznt1
+sha256,5ad857df8976523cb3ad2fdf30e87c0e7daa64135716b139ffdcd209b98e1654,MonikerLoader .NET loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,monikerloader;loader;dotnet;brainfuck;appdomain
+sha256,740a09fcdefa5a5f79355b720f54ff09efa64062229fb388adbccd9c829e9ff0,MonikerLoader .NET loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,monikerloader;loader;dotnet;brainfuck;appdomain
+sha256,5341c7256542405abdd01ee288b08e49dcb6d1782be6b7bea63b459d80f9a8f5,MonikerLoader .NET loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,monikerloader;loader;dotnet;brainfuck;appdomain
+sha256,3a2df7a2cfeca5ba315a29cf313268a53a22316c925e6b9760ead8f4df0d1f75,MonikerLoader .NET loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,monikerloader;loader;dotnet;brainfuck;appdomain
+sha256,2f787c1454891b242ab221b8b8b420373c3eb1a0c1fdcb624dd800c50758bbb0,MonikerLoader stage-2 loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,monikerloader;stage2;loader;dotnet
+sha256,568c67564d62b09d1a1bc29a494cf4bf31afddcafcf78592b178c63f23ccfcae,MonikerLoader stage-2 loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,monikerloader;stage2;loader;dotnet
+sha256,19139a525ee9c22efd6a4842c4cd50ab2c5f9ee391e5531071df0bb4e685f55d,MonikerLoader stage-2 loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,monikerloader;stage2;loader;dotnet
+sha256,72e4b6540e32b8b7aac850055609bc5afc19e29834e9aa6be29a8ea59a2c9785,MonikerLoader stage-2 loader,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,monikerloader;stage2;loader;dotnet
+sha256,16b9a7358be88632378ba20ba1430786f3b844694b1f876211ecdbecf5cccbc2,Installation batch script,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,install;bat;service-hijack
+sha256,37b485ed8d150d022c41e5e307b8c54c34ef806625b44d0c940b18be7d5b29ce,Installation batch script,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,install;bat;service-hijack
+sha256,3e2a0bafbd44e24b17fd7b17c9f2b2a3727349971d42612d55bbc1732082619a,Installation batch script,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,install;bat;service-hijack
+sha256,8c29f9189a9ad75a959024f59e68c62d42a6fd42f9eacf847128c7efe4ef7578,Installation batch script,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,install;bat;service-hijack
+sha256,bd699ed720e2bd7085b3444cb8f4d36870b5b48df1055ec6cc1553db3eef7faf,Installation batch script,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,install;bat;service-hijack
+sha256,a6b5448ba45f3f352f5f4c5376024891adda1ef8ebf62a8fe63424fa230c691d,Installation batch script,SilverDragon,2026-03_SoutheastAsia-Europe,high,CheckPoint-Mar2026,install;bat;service-hijack

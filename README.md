@@ -10,8 +10,8 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Threats_Tracked-29-blue" alt="Threats"/>
-  <img src="https://img.shields.io/badge/Total_IOCs-12,459-orange" alt="IOCs"/>
+  <img src="https://img.shields.io/badge/Threats_Tracked-31-blue" alt="Threats"/>
+  <img src="https://img.shields.io/badge/Total_IOCs-12,810-orange" alt="IOCs"/>
   <img src="https://img.shields.io/badge/YARA_Rules-18-green" alt="YARA"/>
   <img src="https://img.shields.io/badge/License-MIT-lightgrey" alt="License"/>
 </p>
@@ -104,6 +104,7 @@ Dragon-ThreatResearchHQ/
 | [Dropping Elephant](APT-Groups/DroppingElephant/) | India | 9 | — | — | [Profile](APT-Groups/DroppingElephant/README.md) |
 | [Prince of Persia](APT-Groups/PrinceOfPersia/) | Iran | 95 | 1 | — | [Profile](APT-Groups/PrinceOfPersia/README.md) |
 | [Void Arachne / Silver Fox](APT-Groups/VoidArachne-SilverFox/) | China | 6 | — | — | [Profile](APT-Groups/VoidArachne-SilverFox/README.md) |
+| [Silver Dragon](APT-Groups/SilverDragon/) | China (APT41) | 44 | 1 | — | [Profile](APT-Groups/SilverDragon/README.md) |
 | [UNC5221](APT-Groups/UNC5221/) | China | — | — | — | [Profile](APT-Groups/UNC5221/README.md) |
 
 ### MuddyWater Campaigns (Deep-Dive)
@@ -117,7 +118,7 @@ Dragon-ThreatResearchHQ/
 | [Sep 2024 Campaign](APT-Groups/MuddyWater/Campaigns/2024-09_Campaign/) | Sep 2024 | Various | 75 | — |
 | [2025 Campaign](APT-Groups/MuddyWater/Campaigns/2025_MuddyWater/) | 2025 | Various | 8 | — |
 
-### Malware Families (13)
+### Malware Families (14)
 
 | Malware | Type | IOCs | YARA | Report |
 |---------|------|-----:|:----:|--------|
@@ -128,6 +129,7 @@ Dragon-ThreatResearchHQ/
 | [Brickstorm](Malware/Backdoors/Brickstorm/) | Backdoor | 35 | [9 rules](Malware/Backdoors/Brickstorm/yara/) | — |
 | [Snake Keylogger](Malware/Stealers/SnakeKeylogger/) | Keylogger | 19 | — | — |
 | [Meduza Stealer](Malware/Stealers/MeduzaStealer/) | Stealer | 13 | — | — |
+| [AMOS / Atomic Stealer](Malware/Stealers/AMOS-AtomicStealer/) | Stealer (macOS) | 9 | — | [README](Malware/Stealers/AMOS-AtomicStealer/README.md) |
 | [BLX Stealer](Malware/Stealers/BLXStealer/) | Stealer | 2 | — | — |
 | [Moonrise RAT](Malware/RATs/MoonriseRAT/) | RAT | — | — | — |
 | [Phoenix](Malware/Loaders/Phoenix/) | Loader/Backdoor | — | — | [README](Malware/Loaders/Phoenix/README.md) |
